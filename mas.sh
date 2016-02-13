@@ -23,3 +23,5 @@ mas install 422304217 # Day One
 mas install 824171161 # Affinity Designer
 mas install 445189367 # PopClip
 mas install 449589707 # Dash
+
+mas upgrade
