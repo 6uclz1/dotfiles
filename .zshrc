@@ -11,15 +11,22 @@ export PATH=/usr/local/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
+source ~/refresh_pyenv_version.sh
 
 # language environment
 export LANG=en_US.UTF-8
+
+prompt_context() {
+  local user=`whoami`
+  if ["$SSH_CONNECTION" ]; then
+    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%.})"
+  fi
+}
 
 # --------------------
 # Theme Setting
 # --------------------
 ZSH_THEME="agnoster"
-
 CURRENT_BG='NONE'
 PRIMARY_FG=black
 # Characters
@@ -60,12 +67,6 @@ prompt_end() {
   fi
   print -n "%{%f%}"
   CURRENT_BG=''
-}
-
-# Context: user@hostname (who am I and where am I)
-prompt_context() {
-  local user=`whoami`
-    prompt_segment black default "%(!.%{%F{yellow}%}.)`whoami`"
 }
 
 # Git: branch/detached head, dirty status
@@ -151,25 +152,46 @@ prompt_agnoster_setup "$@"
 # Auto "ls" after "cd"
 function chpwd() {ls}
 
+# Auto "mkdir" and "cd"
+function mkdir
+{
+  command mkdir $1 && cd $1
+}
+
+autoload -U compinit; compinit
+autoload -U refresh_pyenv_version
+
+# Auto Run TMUX
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+[[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
+
+# ----------------
+# Aliases
+# ----------------
+# TMUX
+alias ta='tmux attach -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
+
 # Open Atom
 alias atom="open -a /Applications/Atom.app"
 
-autoload -U compinit; compinit
-
+# Nyan Cat :)
+alias nyan='nc -v nyancat.dakko.us 23'
 
 # ----------------
 # setopt Setting
 # ----------------
 setopt auto_menu
-
 setopt auto_cd
-
 setopt nobeep
+setopt prompt_subst
 
 # ----------------
 # Programing Setting
 # ----------------
-
 # Go lang env
 export GOPATH=~/.go
 
@@ -182,7 +204,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-function pyenv_version {
-  echo pyenv version
+# Pyenv Version show right prompt
+function pyenv-version-check {
+  echo `pyenv version | cut -c 1-6`
 }
-RPROMPT='%(pyenv_version)'
+RPROMPT='%{$fg[yellow]%}python > `pyenv-version-check` [%*]'
