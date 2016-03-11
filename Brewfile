@@ -87,6 +87,7 @@ brew pyenv-virtualenv
 brew python
 brew rbenv
 brew readline
+brew reattach-to-user-namespace
 brew ruby-build
 brew snappy
 brew sqlite

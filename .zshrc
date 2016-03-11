@@ -187,7 +187,7 @@ alias tkss='tmux kill-session -t'
 
 # Open Atom
 alias atom="open -a /Applications/Atom.app"
-
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
 
