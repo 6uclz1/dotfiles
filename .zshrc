@@ -10,6 +10,7 @@ zsh-syntax-highlighting)
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=/usr/local/bin:$PATH
+export HOMEBREW_BREWFILE=/Code/dotfiles/Brewfile
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
@@ -169,6 +170,11 @@ autoload -U refresh_pyenv_version
 # Auto Run TMUX
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
+
+# Auto brew
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
 
 # ----------------
 # Aliases
