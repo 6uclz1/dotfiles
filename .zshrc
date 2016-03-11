@@ -1,28 +1,24 @@
 # ZSH Setting
-
 export ZSH=/Users/6uclz1/.oh-my-zsh
-
-ZSH_THEME="agnoster"
 
 HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search zsh-syntax-highlighting)
 
 # User configuration
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
+# export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
+# language environment
 export LANG=en_US.UTF-8
-
 
 # --------------------
 # Theme Setting
 # --------------------
+ZSH_THEME="agnoster"
 
 CURRENT_BG='NONE'
 PRIMARY_FG=black
@@ -38,6 +34,10 @@ GEAR="\u2699"
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
+
+# ----------------
+# Prompt Setting
+# ----------------
 prompt_segment() {
   local bg fg
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
@@ -144,16 +144,31 @@ prompt_agnoster_setup() {
 
 prompt_agnoster_setup "$@"
 
-# ------------------------
+# ----------------
 # Command Setting
-# ------------------------
+# ----------------
 
 # Auto "ls" after "cd"
 function chpwd() {ls}
 
-# ------------------------
+# Open Atom
+alias atom="open -a /Applications/Atom.app"
+
+autoload -U compinit; compinit
+
+
+# ----------------
+# setopt Setting
+# ----------------
+setopt auto_menu
+
+setopt auto_cd
+
+setopt nobeep
+
+# ----------------
 # Programing Setting
-# ------------------------
+# ----------------
 
 # Go lang env
 export GOPATH=~/.go
@@ -166,3 +181,8 @@ eval "$(rbenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+function pyenv_version {
+  echo pyenv version
+}
+RPROMPT='%(pyenv_version)'
