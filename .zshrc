@@ -3,7 +3,9 @@ export ZSH=/Users/6uclz1/.oh-my-zsh
 
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search zsh-syntax-highlighting)
+plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer\
+docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search\
+zsh-syntax-highlighting)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -12,16 +14,10 @@ export PATH=/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source ~/refresh_pyenv_version.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # language environment
 export LANG=en_US.UTF-8
-
-prompt_context() {
-  local user=`whoami`
-  if ["$SSH_CONNECTION" ]; then
-    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%.})"
-  fi
-}
 
 # --------------------
 # Theme Setting
@@ -67,6 +63,13 @@ prompt_end() {
   fi
   print -n "%{%f%}"
   CURRENT_BG=''
+}
+
+prompt_context() {
+  local user=`whoami`
+  if ["$SSH_CONNECTION" ]; then
+    prompt_segment $PRIMARY_FG default " %(!.%{.})"
+  fi
 }
 
 # Git: branch/detached head, dirty status
@@ -126,7 +129,7 @@ prompt_agnoster_main() {
 
 prompt_agnoster_precmd() {
   vcs_info
-  PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
+  PROMPT='%{%f%b%k%}$(prompt_agnoster_main) %{$reset_color%}'
 }
 
 prompt_agnoster_setup() {
@@ -138,7 +141,8 @@ prompt_agnoster_setup() {
   add-zsh-hook precmd prompt_agnoster_precmd
 
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' check-for-changes false
+  zstyle ':vcs_info:*' get-revision true
+  zstyle ':vcs_info:*' check-for-changes true
   zstyle ':vcs_info:git*' formats '%b'
   zstyle ':vcs_info:git*' actionformats '%b (%a)'
 }
@@ -160,6 +164,7 @@ function mkdir
 
 autoload -U compinit; compinit
 autoload -U refresh_pyenv_version
+
 
 # Auto Run TMUX
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
@@ -203,9 +208,15 @@ eval "$(rbenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Pyenv Version show right prompt
 function pyenv-version-check {
   echo `pyenv version | cut -c 1-6`
 }
-RPROMPT='%{$fg[yellow]%}python > `pyenv-version-check` [%*]'
+
+RPROMPT='%{$fg[yellow]%}python > `pyenv-version-check` [%*]%{$reset_color%}'
+
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
+export GREP_COLOR='1;33'
