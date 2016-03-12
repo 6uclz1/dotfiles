@@ -1,5 +1,5 @@
 # ZSH Setting
-export ZSH=/Users/6uclz1/.oh-my-zsh
+export ZSH=/Users/$USER/.oh-my-zsh
 
 HIST_STAMPS="mm/dd/yyyy"
 
