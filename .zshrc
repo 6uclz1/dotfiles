@@ -164,7 +164,6 @@ function mkdir
 }
 
 autoload -U compinit; compinit
-autoload -U refresh_pyenv_version
 
 # Auto Run TMUX
 [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
