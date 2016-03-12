@@ -11,7 +11,7 @@ after install Xcode
     $ xcode-select --install
 
 
-    $ sh ./dotfile/macosx_setup.sh
+    $ sh ./macosx_setup.sh
 
 Terminal Color Setting
 
