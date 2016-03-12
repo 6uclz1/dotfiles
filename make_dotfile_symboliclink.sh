@@ -1,5 +1,7 @@
-ln -sf /code/dotfiles/.tmux.conf .tmux.conf
+cd ~/
 
-ln -sf /code/dotfiles/.zshenv .zshenv
+ln -sf ./dotfiles/.tmux.conf .tmux.conf
 
-ln -sf /code/dotfiles/.zshrc .zshrc
+ln -sf ./dotfiles/.zshenv .zshenv
+
+ln -sf ./dotfiles/.zshrc .zshrc

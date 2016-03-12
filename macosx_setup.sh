@@ -10,4 +10,6 @@ brew update
 
 brew install rcmdnk/file/brew-file
 
-echo "DONE"
+export HOMEBREW_BREWFILE=./dotfiles/Brewfile
+
+brew file install
