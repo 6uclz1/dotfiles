@@ -1,6 +1,6 @@
-sudo xcodebuild -license
+# sudo xcodebuild -license
 
-xcode-select --install
+# xcode-select --install
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -13,3 +13,7 @@ brew install rcmdnk/file/brew-file
 export HOMEBREW_BREWFILE=./dotfiles/Brewfile
 
 brew file install
+
+sh ./dotfiles/make_dotfile_symboliclink.sh
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
