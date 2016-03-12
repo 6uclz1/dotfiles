@@ -6,3 +6,6 @@ my dotfiles.❤️
 Terminal Color Setting
 
 > https://github.com/tomislav/osx-terminal.app-colors-solarized
+
+Set font Ricty + Powerline
+
