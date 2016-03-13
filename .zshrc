@@ -42,7 +42,8 @@ GEAR="\u2699"
 # ----------------
 # Prompt Setting
 # ----------------
-prompt_segment() {
+prompt_segment()
+{
   local bg fg
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
@@ -56,7 +57,8 @@ prompt_segment() {
 }
 
 # End the prompt, closing any open segments
-prompt_end() {
+prompt_end()
+{
   if [[ -n $CURRENT_BG ]]; then
     print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
   else
@@ -66,7 +68,8 @@ prompt_end() {
   CURRENT_BG=''
 }
 
-prompt_context() {
+prompt_context()
+{
   local user=`whoami`
   if ["$SSH_CONNECTION" ]; then
     prompt_segment $PRIMARY_FG default " %(!.%{.})"
@@ -74,7 +77,8 @@ prompt_context() {
 }
 
 # Git: branch/detached head, dirty status
-prompt_git() {
+prompt_git()
+{
   local color ref
   is_dirty() {
     test -n "$(git status --porcelain --ignore-submodules)"
@@ -99,7 +103,8 @@ prompt_git() {
 }
 
 # Dir: current working directory
-prompt_dir() {
+prompt_dir()
+{
   prompt_segment blue $PRIMARY_FG ' %~ '
 }
 
@@ -107,7 +112,8 @@ prompt_dir() {
 # - was there an error
 # - am I root
 # - are there background jobs?
-prompt_status() {
+prompt_status()
+{
   local symbols
   symbols=()
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
@@ -118,7 +124,8 @@ prompt_status() {
 }
 
 ## Main prompt
-prompt_agnoster_main() {
+prompt_agnoster_main()
+{
   RETVAL=$?
   CURRENT_BG='NONE'
   prompt_status
@@ -128,12 +135,14 @@ prompt_agnoster_main() {
   prompt_end
 }
 
-prompt_agnoster_precmd() {
+prompt_agnoster_precmd()
+{
   vcs_info
   PROMPT='%{%f%b%k%}$(prompt_agnoster_main) %{$reset_color%}'
 }
 
-prompt_agnoster_setup() {
+prompt_agnoster_setup()
+{
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
 
@@ -155,7 +164,10 @@ prompt_agnoster_setup "$@"
 # ----------------
 
 # Auto "ls" after "cd"
-function chpwd() {ls}
+function chpwd
+{
+  ls
+}
 
 # Auto "mkdir" and "cd"
 function mkdir
@@ -163,16 +175,21 @@ function mkdir
   command mkdir $1 && cd $1
 }
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
+
+autoload -Uz colors
+colors
+
+# Dupricate delete
+typeset -U path cdpath fpath manpath
 
 # Auto Run TMUX (optinal)
 # [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 # [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
 
-# Auto brew
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
+if [ -f $(brew --prefix) /Users/6uclz1/dotfiles/Brewfile ];then
+  echo `brew-file init`
 fi
 
 # ----------------
@@ -180,15 +197,12 @@ fi
 # ----------------
 # Open Atom
 alias atom="open -a /Users/$USER/Applications/Atom.app"
-
 # Open Emacs
 alias emacs="/Users/$USER/Applications/Emacs.app -nw"
-
 # Fix pyenv brew doctor config
 alias brew="env PATH=${PATH/\/Users\/takc923\/\.pyenv\/shims:/} brew"
-
-alias zshrc="source ~/.zshrc"
-
+# shortcut
+alias .zshrc="source ~/.zshrc"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
 
@@ -217,7 +231,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Pyenv Version show right prompt
-function pyenv-version-check {
+function pyenv-version-check
+{
   echo `pyenv version | cut -c 1-6`
 }
 

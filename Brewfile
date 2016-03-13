@@ -5,6 +5,14 @@ tap argon/mas
 brew mas
 
 tap caskroom/cask
+cask alfred
+cask atom
+cask bettertouchtool
+cask dropbox
+cask emacs
+cask github-desktop
+cask karabiner
+cask sketch
 
 tap homebrew/python
 brew numpy
@@ -71,6 +79,7 @@ brew libvo-aacenc
 brew libvorbis
 brew libyaml
 brew lmdb
+brew mackup
 brew mpfr
 brew mysql
 brew node
@@ -106,10 +115,7 @@ appstore 443987910 1Password
 appstore 824171161 Affinity Designer
 appstore 974971992 Alternote
 appstore 641027709 Color Picker
-appstore 1024640650 CotEditor
 appstore 449589707 Dash
-appstore 422304217 Day One
-appstore 1081413713 GIF Brewery 3
 appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
