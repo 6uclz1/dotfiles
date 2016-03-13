@@ -6,12 +6,10 @@ my dotfiles.❤️
 after install Xcode
 
     $ sudo xcodebuild -license
-
-
     $ xcode-select --install
-
-
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     $ sh ./macosx_setup.sh
+
 
 Terminal Color Setting
 
