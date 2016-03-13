@@ -1,24 +1,35 @@
+#########
+# ZSHRC #
+#########
 # ZSH Setting
 export ZSH=~/.oh-my-zsh
-
-HIST_STAMPS="mm/dd/yyyy"
-
-plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer\
-docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search\
-zsh-syntax-highlighting)
-
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
+# Color Setting
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
+export GREP_COLOR='1;33'
+# language environment
+export LANG=en_US.UTF-8
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# language environment
-export LANG=en_US.UTF-8
+# Dupricate delete
+typeset -U path cdpath fpath manpath
+
+HIST_STAMPS="mm/dd/yyyy"
+
+plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer\
+docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search\
+zsh-completions zsh-syntax-highlighting)
+
+fpath=(path/to/zsh-completions/src $fpath)
+
 
 # --------------------
 # Theme Setting
@@ -181,16 +192,9 @@ compinit
 autoload -Uz colors
 colors
 
-# Dupricate delete
-typeset -U path cdpath fpath manpath
-
 # Auto Run TMUX (optinal)
 # [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 # [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
-
-if [ -f $(brew --prefix) /Users/6uclz1/dotfiles/Brewfile ];then
-  echo `brew-file init`
-fi
 
 # ----------------
 # Aliases
@@ -237,7 +241,3 @@ function pyenv-version-check
 }
 
 RPROMPT='%{$fg[yellow]%}python > `pyenv-version-check` [%*]%{$reset_color%}'
-
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
-export GREP_COLOR='1;33'
