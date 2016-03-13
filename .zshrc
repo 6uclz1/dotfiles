@@ -9,12 +9,12 @@ zsh-syntax-highlighting)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export HOMEBREW_BREWFILE=/Code/dotfiles/Brewfile
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
-source ~/refresh_pyenv_version.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # language environment
@@ -163,11 +163,12 @@ function mkdir
   command mkdir $1 && cd $1
 }
 
-autoload -U compinit; compinit
+autoload -U compinit
+compinit
 
-# Auto Run TMUX
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
-[[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
+# Auto Run TMUX (optinal)
+# [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+# [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
 
 # Auto brew
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
@@ -177,16 +178,13 @@ fi
 # ----------------
 # Aliases
 # ----------------
-# TMUX
-alias ta='tmux attach -t'
-alias ts='tmux new-session -s'
-alias tl='tmux list-sessions'
-alias tksv='tmux kill-server'
-alias tkss='tmux kill-session -t'
-
 # Open Atom
 alias atom="open -a /Applications/Atom.app"
+# Open Emacs
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+
+# Fix pyenv brew doctor config
+alias brew="env PATH=${PATH/\/Users\/takc923\/\.pyenv\/shims:/} brew"
 
 alias zshrc="source ~/.zshrc"
 
