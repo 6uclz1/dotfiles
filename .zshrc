@@ -1,5 +1,5 @@
 # ZSH Setting
-export ZSH=/Users/$USER/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 HIST_STAMPS="mm/dd/yyyy"
 
@@ -10,8 +10,8 @@ zsh-syntax-highlighting)
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH=/usr/local/bin:$PATH
-export HOMEBREW_BREWFILE=/Code/dotfiles/Brewfile
+export PATH="/usr/local/bin:$PATH"
+export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
@@ -179,9 +179,10 @@ fi
 # Aliases
 # ----------------
 # Open Atom
-alias atom="open -a /Applications/Atom.app"
+alias atom="open -a /Users/$USER/Applications/Atom.app"
+
 # Open Emacs
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+alias emacs="/Users/$USER/Applications/Emacs.app -nw"
 
 # Fix pyenv brew doctor config
 alias brew="env PATH=${PATH/\/Users\/takc923\/\.pyenv\/shims:/} brew"

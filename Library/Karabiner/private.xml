@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<root>
+  <inputsourcedef>
+    <name>JA_IME</name>
+    <inputmodeid_equal>com.apple.inputmethod.Japanese</inputmodeid_equal>
+  </inputsourcedef>
+
+  <item>
+    <name>Switching Hankaku/Zenkaku Spaces</name>
+    <identifier>private.ime_space_to_hankaku</identifier>
+    <inputsource_only>JA_IME</inputsource_only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::SPACE, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::SPACE
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::SPACE, ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+      KeyCode::SPACE
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::SPACE,
+      KeyCode::SPACE, ModifierFlag::SHIFT_L
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::SPACE, ModifierFlag::CONTROL_L,
+      KeyCode::SPACE, ModifierFlag::CONTROL_L,
+    </autogen>
+  </item>
+</root>
