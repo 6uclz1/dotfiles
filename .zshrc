@@ -1,6 +1,10 @@
 #########
 # ZSHRC #
 #########
+
+# --------
+# export
+# --------
 # ZSH Setting
 export ZSH=~/.oh-my-zsh
 # User configuration
@@ -14,8 +18,10 @@ export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43
 export GREP_COLOR='1;33'
 # language environment
 export LANG=en_US.UTF-8
-export COMMAND=$0
 
+# -------
+# source
+# -------
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -23,14 +29,29 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Dupricate delete
 typeset -U path cdpath fpath manpath
 
+compdef _comp_func cmd
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -U compinit promptinit
+compinit
+promptinit
+
+autoload -U colors
+colors
+
+# ----------------
+# setopt Setting
+# ----------------
+setopt auto_menu
+setopt auto_cd
+setopt nobeep
+setopt prompt_subst
+
 HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer\
 docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search\
 zsh-completions zsh-syntax-highlighting)
-
-fpath=(path/to/zsh-completions/src $fpath)
-
 
 # --------------------
 # Theme Setting
@@ -187,12 +208,6 @@ function mkdir
   command mkdir $1 && cd $1
 }
 
-autoload -Uz compinit
-compinit
-
-autoload -Uz colors
-colors
-
 # Auto Run TMUX (optinal)
 # [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 # [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
@@ -210,14 +225,6 @@ alias brew="env PATH=${PATH/\/Users\/takc923\/\.pyenv\/shims:/} brew"
 alias .zshrc="source ~/.zshrc"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
-
-# ----------------
-# setopt Setting
-# ----------------
-setopt auto_menu
-setopt auto_cd
-setopt nobeep
-setopt prompt_subst
 
 # ----------------
 # Programing Setting
@@ -242,10 +249,3 @@ function pyenv-version-check
 }
 
 RPROMPT='%{$fg[yellow]%}python > `pyenv-version-check` [%*]%{$reset_color%}'
-
-function autorunbrewfile
-{
-  if [COMMAND = "brew"]; then
-    echo `brewfile init`
-  fi
-}
