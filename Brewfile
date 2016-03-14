@@ -31,7 +31,6 @@ brew brew-file
 tap sanemat/font
 
 # Other Homebrew packages
-brew ansible
 brew autoconf
 brew automake
 brew berkeley-db
@@ -47,6 +46,7 @@ brew flac
 brew fontconfig
 brew fontforge
 brew freetype
+brew fribidi
 brew gcc
 brew gdbm
 brew gettext
@@ -64,6 +64,7 @@ brew jack
 brew jpeg
 brew lame
 brew leveldb
+brew libass
 brew libevent
 brew libffi
 brew liblo
@@ -78,9 +79,12 @@ brew libtool
 brew libvo-aacenc
 brew libvorbis
 brew libyaml
+brew little-cms2
 brew lmdb
+brew lua
 brew mackup
 brew mpfr
+brew mpv
 brew mysql
 brew node
 brew openexr
@@ -94,6 +98,7 @@ brew protobuf --devel
 brew pyenv
 brew pyenv-virtualenv
 brew python
+brew python3
 brew rbenv
 brew readline
 brew reattach-to-user-namespace
@@ -105,6 +110,8 @@ brew tmux
 brew wget
 brew x264
 brew xvid
+brew xz
+brew youtube-dl
 brew zeromq
 brew zsh
 brew zsh-completions

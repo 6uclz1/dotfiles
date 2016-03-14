@@ -5,18 +5,22 @@
 # --------
 # export
 # --------
+
 # ZSH Setting
 export ZSH=~/.oh-my-zsh
+
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
+
 # Color Setting
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
 export GREP_COLOR='1;33'
 # language environment
+
 export LANG=en_US.UTF-8
 
 # -------
@@ -29,15 +33,14 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Dupricate delete
 typeset -U path cdpath fpath manpath
 
-compdef _comp_func cmd
-
 fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -U compinit promptinit
-compinit
-promptinit
+autoload -Uz compinit
+compinit -u
 
 autoload -U colors
 colors
+
+autoload brewfile-autorun
 
 # ----------------
 # setopt Setting
