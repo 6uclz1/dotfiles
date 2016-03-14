@@ -18,8 +18,8 @@ cask intellij-idea
 cask karabiner
 cask pycharm
 cask rubymine
-cask sketch-toolbox
 cask sketch
+cask sourcetree
 
 tap homebrew/python
 brew numpy
