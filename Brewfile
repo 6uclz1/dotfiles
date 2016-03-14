@@ -5,13 +5,20 @@ tap argon/mas
 brew mas
 
 tap caskroom/cask
+cask ableton-live-suite
 cask alfred
 cask atom
 cask bettertouchtool
+cask clion
+cask cycling74-max
 cask dropbox
 cask emacs
 cask github-desktop
+cask intellij-idea
 cask karabiner
+cask pycharm
+cask rubymine
+cask sketch-toolbox
 cask sketch
 
 tap homebrew/python
@@ -127,7 +134,6 @@ appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
 appstore 890031187 Marked 2
-appstore 748212890 Memory Monitor
 appstore 409203825 Numbers
 appstore 409201541 Pages
 appstore 967805235 Paste
