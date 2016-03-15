@@ -1,9 +1,0 @@
-sudo -v
-
-sh ./osx_default_white_Safari.sh
-
-sh ./osx_default_write_other.sh
-
-sh ./osx_defaults_write_Dock.sh
-
-sh ./osx_defaults_write_Finder.sh

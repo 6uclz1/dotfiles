@@ -15,13 +15,38 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
-# Color Setting
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
-export GREP_COLOR='1;33'
 # language environment
 
 export LANG=en_US.UTF-8
+
+
+plugins=\
+(\
+my-env\
+atom\
+autojump\
+brew\
+brew-cask\
+bundler\
+cdd\
+colored-man\
+composer\
+docker\
+encode64\
+gem\
+git\
+homeshick\
+pow\
+pyenv\
+rails\
+rake\
+rbenv\
+tig\
+vagrant\
+web-search\
+zsh-completions\
+zsh-syntax-highlighting\
+)
 
 # -------
 # source
@@ -51,10 +76,6 @@ setopt nobeep
 setopt prompt_subst
 
 HIST_STAMPS="mm/dd/yyyy"
-
-plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer\
-docker encode64 gem git homeshick pow rails rake rbenv tig vagrant web-search\
-zsh-completions zsh-syntax-highlighting)
 
 # --------------------
 # Theme Setting
@@ -199,13 +220,13 @@ prompt_agnoster_setup "$@"
 # Command Setting
 # ----------------
 
-# Auto "ls" after "cd"
+# "cd" automatically after "ls"
 function chpwd
 {
-  ls
+  ls -a
 }
 
-# Auto "mkdir" and "cd"
+# "mkdir" automatically after "cd"
 function mkdir
 {
   command mkdir $1 && cd $1
