@@ -1,2 +1,6 @@
 autopep8
 Cython
+numpy
+scipy
+sympy
+matplotlib
