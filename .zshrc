@@ -10,15 +10,17 @@
 export ZSH=~/.oh-my-zsh
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin"
+export PATH="/usr/bin:$PATH"
+export PATH="/bin:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="/sbin:$PATH"
+export PATH="$HOME/usr/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
 # language environment
-
 export LANG=en_US.UTF-8
-
 
 plugins=\
 (\
@@ -64,8 +66,6 @@ compinit -u
 
 autoload -U colors
 colors
-
-autoload brewfile-autorun
 
 # ----------------
 # setopt Setting
@@ -216,6 +216,11 @@ prompt_agnoster_setup()
 
 prompt_agnoster_setup "$@"
 
+
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
+
 # ----------------
 # Command Setting
 # ----------------
@@ -225,6 +230,15 @@ function chpwd
 {
   ls -a
 }
+
+# "cd" automatically after "git clone"
+function gitccd
+{
+  gitcloneurl=$1
+  reponame=$(echo $gitcloneurl | awk -F/ '{print $NF}'| sed -e 's/.git$//')
+  cd $reponame
+}
+
 
 # "mkdir" automatically after "cd"
 function mkdir
@@ -254,7 +268,10 @@ alias nyan='nc -v nyancat.dakko.us 23'
 # Programing Setting
 # ----------------
 # Go lang env
-export GOPATH=~/.go
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # Ruby env
 export PATH="$HOME/.rbenv/bin:$PATH"

@@ -5,7 +5,6 @@ tap argon/mas
 brew mas
 
 tap caskroom/cask
-cask ableton-live-suite
 cask alfred
 cask atom
 cask clion
@@ -42,6 +41,7 @@ brew automake
 brew berkeley-db
 brew boost
 brew boost-python
+brew cabal-install
 brew cairo
 brew cmake
 brew coreutils
@@ -61,6 +61,7 @@ brew ghc
 brew glib
 brew glog
 brew gmp
+brew go
 brew gobject-introspection
 brew harfbuzz
 brew icu4c
@@ -122,6 +123,11 @@ brew zeromq
 brew zsh
 brew zsh-completions
 brew zsh-syntax-highlighting
+
+# Below applications were installed by Cask,
+# but do not have corresponding casks.
+
+#cask ableton-live-suite (!)
 
 # App Store applications
 appstore 443987910 1Password
