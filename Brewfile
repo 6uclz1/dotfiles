@@ -8,7 +8,6 @@ tap caskroom/cask
 cask ableton-live-suite
 cask alfred
 cask atom
-cask bettertouchtool
 cask clion
 cask cycling74-max
 cask dropbox
@@ -133,6 +132,7 @@ appstore 449589707 Dash
 appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
+appstore 441258766 Magnet
 appstore 890031187 Marked 2
 appstore 409203825 Numbers
 appstore 409201541 Pages
