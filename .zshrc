@@ -1,6 +1,6 @@
-#########
-# ZSHRC #
-#########
+###############################################################################
+# ZSHRC
+###############################################################################
 
 ###############################################################################
 # EXPORT
@@ -50,11 +50,6 @@ zsh-syntax-highlighting\
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Dupricate delete
-typeset -U path cdpath fpath manpath
-
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 ###############################################################################
 # AUTOLOAD
