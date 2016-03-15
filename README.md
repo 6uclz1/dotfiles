@@ -7,8 +7,6 @@ after install Xcode
 
     $ sudo xcodebuild -license
     $ xcode-select --install
-    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    $ sh ./macosx_setup.sh
 
 Set font Ricty + Powerline (It's Private! Sorry...)
 
