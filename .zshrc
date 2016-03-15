@@ -2,21 +2,22 @@
 # ZSHRC #
 #########
 
-# --------
-# export
-# --------
+###############################################################################
+# EXPORT
+###############################################################################
 
 # ZSH Setting
 export ZSH=~/.oh-my-zsh
 
 # User configuration
+#PATH
 export PATH="/usr/local/bin"
 export PATH="/usr/bin:$PATH"
 export PATH="/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="/sbin:$PATH"
 export PATH="$HOME/usr/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
+
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
 # language environment
@@ -50,9 +51,9 @@ zsh-completions\
 zsh-syntax-highlighting\
 )
 
-# -------
-# source
-# -------
+###############################################################################
+# SOURCE
+###############################################################################
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -67,9 +68,9 @@ compinit -u
 autoload -U colors
 colors
 
-# ----------------
-# setopt Setting
-# ----------------
+###############################################################################
+# SETOPT
+###############################################################################
 setopt auto_menu
 setopt auto_cd
 setopt nobeep
@@ -77,9 +78,9 @@ setopt prompt_subst
 
 HIST_STAMPS="mm/dd/yyyy"
 
-# --------------------
-# Theme Setting
-# --------------------
+###############################################################################
+# THEME
+###############################################################################
 ZSH_THEME="agnoster"
 CURRENT_BG='NONE'
 PRIMARY_FG=black
@@ -96,9 +97,9 @@ GEAR="\u2699"
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
 
-# ----------------
-# Prompt Setting
-# ----------------
+###############################################################################
+# PROMPT
+###############################################################################
 prompt_segment()
 {
   local bg fg
@@ -221,9 +222,9 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
 
-# ----------------
-# Command Setting
-# ----------------
+###############################################################################
+# COMMAND
+###############################################################################
 
 # "cd" automatically after "ls"
 function chpwd
@@ -250,9 +251,9 @@ function mkdir
 # [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 # [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
 
-# ----------------
-# Aliases
-# ----------------
+###############################################################################
+# ALIAS
+###############################################################################
 # Open Atom
 alias atom="open -a /Users/$USER/Applications/Atom.app"
 # Open Emacs
@@ -264,9 +265,9 @@ alias .zshrc="source ~/.zshrc"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
 
-# ----------------
-# Programing Setting
-# ----------------
+###############################################################################
+# PROGRAMMING
+###############################################################################
 # Go lang env
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
