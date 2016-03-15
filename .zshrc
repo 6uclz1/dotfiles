@@ -5,23 +5,16 @@
 ###############################################################################
 # EXPORT
 ###############################################################################
-
-# ZSH Setting
-export ZSH=~/.oh-my-zsh
-
-# User configuration
-#PATH
-export PATH="/usr/local/bin"
-export PATH="/usr/bin:$PATH"
-export PATH="/bin:$PATH"
-export PATH="/usr/sbin:$PATH"
-export PATH="/sbin:$PATH"
-export PATH="$HOME/usr/bin:$PATH"
-
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
-
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=\
+/usr/local/share/zsh-syntax-highlighting/highlighters
 # language environment
 export LANG=en_US.UTF-8
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 plugins=\
 (\
@@ -62,6 +55,10 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 typeset -U path cdpath fpath manpath
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+###############################################################################
+# AUTOLOAD
+###############################################################################
 autoload -Uz compinit
 compinit -u
 
@@ -71,12 +68,30 @@ colors
 ###############################################################################
 # SETOPT
 ###############################################################################
-setopt auto_menu
 setopt auto_cd
+setopt auto_menu
+
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_nodups
+
 setopt nobeep
+
 setopt prompt_subst
 
+setopt share_history
+
 HIST_STAMPS="mm/dd/yyyy"
+
+###############################################################################
+# ZSTYLE
+###############################################################################
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 ###############################################################################
 # THEME
@@ -275,7 +290,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 # Ruby env
-export PATH="$HOME/.rbenv/bin:$PATH"
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
 
 # Python env
