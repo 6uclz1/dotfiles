@@ -124,11 +124,6 @@ brew zsh
 brew zsh-completions
 brew zsh-syntax-highlighting
 
-# Below applications were installed by Cask,
-# but do not have corresponding casks.
-
-#cask ableton-live-suite (!)
-
 # App Store applications
 appstore 443987910 1Password
 appstore 824171161 Affinity Designer
