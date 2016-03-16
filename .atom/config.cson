@@ -1,0 +1,21 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "4c12ec3b-cead-4ae7-a26a-8836aa45e826"
+  "atom-material-ui":
+    fonts: {}
+  core:
+    projectHome: "~/Code"
+  editor:
+    fontFamily: "Ricty"
+    fontSize: 15
+    invisibles: {}
+  "exception-reporting":
+    userId: "7612ea13-e6a5-794b-dfae-d222d4257fb5"
+  minimap:
+    plugins:
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+  "one-dark-ui": {}
+  tidal: {}
+  welcome:
+    showOnStartup: false

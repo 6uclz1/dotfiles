@@ -1,0 +1,9 @@
+[core]
+  excludesfile = ~/.gitignore
+
+[color]
+  ui = auto
+
+  [user]
+  name  = 6uclz1
+  email = 6uclz1@gmail.com

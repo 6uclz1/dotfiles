@@ -5,11 +5,11 @@
 ###############################################################################
 # EXPORT
 ###############################################################################
-export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=\
-/usr/local/share/zsh-syntax-highlighting/highlighters
 # language environment
 export LANG=en_US.UTF-8
+
+# emacs like keybind
+bindkey -e
 
 # history
 HISTFILE=~/.zsh_history
@@ -18,30 +18,30 @@ SAVEHIST=1000000
 
 plugins=\
 (\
-my-env\
-atom\
-autojump\
-brew\
-brew-cask\
-bundler\
-cdd\
-colored-man\
-composer\
-docker\
-encode64\
-gem\
-git\
-homeshick\
-pow\
-pyenv\
-rails\
-rake\
-rbenv\
-tig\
-vagrant\
-web-search\
-zsh-completions\
-zsh-syntax-highlighting\
+my-env \
+atom \
+autojump \
+brew \
+brew-cask \
+bundler \
+cdd \
+colored-man \
+composer \
+docker \
+encode64 \
+gem \
+git \
+homeshick \
+pow \
+pyenv \
+rails \
+rake \
+rbenv \
+tig \
+vagrant \
+web-search \
+zsh-completions \
+zsh-syntax-highlighting \
 )
 
 ###############################################################################
@@ -77,6 +77,8 @@ setopt prompt_subst
 setopt share_history
 
 HIST_STAMPS="mm/dd/yyyy"
+
+REPORTTIME=3
 
 ###############################################################################
 # ZSTYLE
@@ -227,11 +229,6 @@ prompt_agnoster_setup()
 
 prompt_agnoster_setup "$@"
 
-
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
-
 ###############################################################################
 # COMMAND
 ###############################################################################
@@ -266,10 +263,6 @@ function mkdir
 ###############################################################################
 # Open Atom
 alias atom="open -a /Users/$USER/Applications/Atom.app"
-# Open Emacs
-alias emacs="/Users/$USER/Applications/Emacs.app -nw"
-# Fix pyenv brew doctor config
-alias brew="env PATH=${PATH/\/Users\/takc923\/\.pyenv\/shims:/} brew"
 # shortcut
 alias .zshrc="source ~/.zshrc"
 # Nyan Cat :)

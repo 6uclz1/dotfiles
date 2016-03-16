@@ -1,6 +1,8 @@
+
 ;; Language Environment
+
 (set-locale-environment nil)
-(set-language-environment "Japanese")
+
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
@@ -16,9 +18,9 @@
 
 (setq-default tab-width 4 indent-tabs-mode nil)
 
-(menu-bar-mode -1)
+(column-number-mode t)
 
-(tool-bar-mode -1)
+(global-linum-mode t)
 
 (global-hl-line-mode t)
 
