@@ -19,5 +19,3 @@ typeset -U path cdpath fpath manpath
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 export fpath
-
-echo "Good Morning!"

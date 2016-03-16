@@ -11,6 +11,7 @@ cask clion
 cask cycling74-max
 cask dropbox
 cask emacs
+cask flux
 cask github-desktop
 cask intellij-idea
 cask karabiner
