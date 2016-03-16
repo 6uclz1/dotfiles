@@ -14,6 +14,7 @@
 
 ;; Do not make backup
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 (setq delete-auto-save-files t)
 
 (setq-default tab-width 4 indent-tabs-mode nil)
@@ -34,3 +35,16 @@
 
 ;; No Beep
 (setq ring-bell-function 'ignore)
+
+
+(require 'package)
+
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+(add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+(package-initialize)
