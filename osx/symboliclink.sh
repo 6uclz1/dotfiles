@@ -5,7 +5,6 @@ DOT_FILES=\
 .zshenv \
 .zlogin \
 .zshrc \
-Brewfile \
 )
 
 for dotfile in ${DOT_FILES[@]}

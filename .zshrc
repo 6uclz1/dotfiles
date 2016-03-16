@@ -8,6 +8,8 @@
 # language environment
 export LANG=en_US.UTF-8
 
+export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
+
 # emacs like keybind
 bindkey -e
 

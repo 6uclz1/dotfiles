@@ -9,12 +9,13 @@ cask alfred
 cask atom
 cask clion
 cask cycling74-max
+cask daisydisk
 cask dropbox
-cask emacs
 cask flux
 cask github-desktop
 cask intellij-idea
 cask karabiner
+cask onyx
 cask pycharm
 cask rubymine
 cask sketch
@@ -48,6 +49,7 @@ brew cmake
 brew coreutils
 brew czmq
 brew eigen
+brew emacs
 brew ffmpeg
 brew flac
 brew fontconfig

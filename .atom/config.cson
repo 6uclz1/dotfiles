@@ -12,6 +12,7 @@
   "exception-reporting":
     userId: "7612ea13-e6a5-794b-dfae-d222d4257fb5"
   minimap:
+    displayCodeHighlights: false
     plugins:
       pigments: true
       pigmentsDecorationsZIndex: 0
