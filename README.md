@@ -11,3 +11,8 @@ after install Xcode
 Set font Ricty + Powerline (It's Private! Sorry...)
 
     $ git clone https://github.com/6uclz1/Fonts
+    
+Set crontab
+
+    $ crontab -e
+    $ @reboot $HOME/dotfiles/osx/brewfile.sh
