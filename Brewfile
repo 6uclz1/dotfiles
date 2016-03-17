@@ -16,6 +16,7 @@ cask github-desktop
 cask intellij-idea
 cask karabiner
 cask onyx
+cask parallels-desktop
 cask pycharm
 cask rubymine
 cask sketch
