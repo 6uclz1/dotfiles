@@ -13,10 +13,12 @@ cask daisydisk
 cask dropbox
 cask flux
 cask github-desktop
+cask google-chrome
 cask intellij-idea
 cask karabiner
 cask onyx
 cask parallels-desktop
+cask processing
 cask pycharm
 cask rubymine
 cask sketch
@@ -70,6 +72,7 @@ brew gobject-introspection
 brew harfbuzz
 brew icu4c
 brew ilmbase
+brew imagemagick
 brew isl
 brew jack
 brew jpeg
@@ -150,3 +153,4 @@ appstore 425424353 The Unarchiver
 appstore 557168941 Tweetbot
 appstore 497799835 Xcode
 appstore 493949693 iMage Tools
+appstore 408981434 iMovie
