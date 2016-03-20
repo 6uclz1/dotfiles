@@ -7,20 +7,15 @@ brew mas
 tap caskroom/cask
 cask alfred
 cask atom
-cask clion
 cask cycling74-max
 cask daisydisk
 cask dropbox
 cask flux
 cask github-desktop
-cask google-chrome
-cask intellij-idea
 cask karabiner
 cask onyx
 cask parallels-desktop
 cask processing
-cask pycharm
-cask rubymine
 cask sketch
 cask sourcetree
 
