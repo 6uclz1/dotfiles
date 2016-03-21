@@ -130,6 +130,7 @@ brew zsh-syntax-highlighting
 appstore 443987910 1Password
 appstore 824171161 Affinity Designer
 appstore 974971992 Alternote
+appstore 417375580 BetterSnapTool
 appstore 641027709 Color Picker
 appstore 449589707 Dash
 appstore 682658836 GarageBand
