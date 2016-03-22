@@ -269,6 +269,8 @@ alias atom="open -a /Users/$USER/Applications/Atom.app"
 alias .zshrc="source ~/.zshrc"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
+# Homebrew warning avoid pyenv path.
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
 ###############################################################################
 # PROGRAMMING
@@ -290,6 +292,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
 
 # Pyenv Version show right prompt
 function pyenv-version-check
