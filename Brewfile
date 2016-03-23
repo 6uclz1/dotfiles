@@ -136,7 +136,6 @@ appstore 449589707 Dash
 appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
-appstore 441258766 Magnet
 appstore 890031187 Marked 2
 appstore 409203825 Numbers
 appstore 409201541 Pages
@@ -147,6 +146,5 @@ appstore 866773894 Quiver
 appstore 803453959 Slack
 appstore 425424353 The Unarchiver
 appstore 557168941 Tweetbot
-appstore 497799835 Xcode
 appstore 493949693 iMage Tools
 appstore 408981434 iMovie
