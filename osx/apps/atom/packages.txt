@@ -1,12 +1,13 @@
-atom-beautify@0.28.26
+atom-beautify@0.28.27
 autocomplete@0.47.0
 autocomplete-glsl@0.2.3
-autocomplete-python@1.7.0
+autocomplete-python@1.7.2
 color-picker@2.1.1
 file-icons@1.6.18
 highlight-selected@0.11.2
-linter@1.11.3
-pigments@0.24.5
-regex-railroad-diagram@0.11.0
+linter@1.11.4
+minimap@4.21.0
+pigments@0.26.0
+regex-railroad-diagram@0.16.0
 tidal@2.1.0
 
