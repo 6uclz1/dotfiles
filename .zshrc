@@ -297,7 +297,7 @@ eval "$(pyenv virtualenv-init -)"
 # Pyenv Version show right prompt
 function pyenv-version-check
 {
-  echo `pyenv version | cut -c 1-6`
+  echo `pyenv version | cut -c 1-8`
 }
 
-RPROMPT='%{$fg[yellow]%}python > `pyenv-version-check` [%*]%{$reset_color%}'
+RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check` [%*]%{$reset_color%}'
