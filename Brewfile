@@ -25,7 +25,6 @@ brew numpy
 tap homebrew/science
 brew hdf5
 brew opencv
-brew opencv3
 
 tap homebrew/versions
 brew glfw3
@@ -133,6 +132,7 @@ appstore 974971992 Alternote
 appstore 417375580 BetterSnapTool
 appstore 641027709 Color Picker
 appstore 449589707 Dash
+appstore 422304217 Day One Classic
 appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
