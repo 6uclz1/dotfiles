@@ -10,8 +10,8 @@ cask atom
 cask cycling74-max
 cask daisydisk
 cask dropbox
-cask flux
 cask github-desktop
+cask gitkraken
 cask karabiner
 cask onyx
 cask parallels-desktop
@@ -113,6 +113,7 @@ brew reattach-to-user-namespace
 brew ruby-build
 brew snappy
 brew sqlite
+brew sshrc
 brew szip
 brew tmux
 brew wget

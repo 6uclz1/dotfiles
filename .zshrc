@@ -35,6 +35,8 @@ encode64 \
 gem \
 git \
 homeshick \
+pep8 \
+pip \
 pow \
 pyenv \
 rails \
@@ -292,7 +294,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 
 # Pyenv Version show right prompt
