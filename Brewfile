@@ -11,7 +11,6 @@ cask cycling74-max
 cask daisydisk
 cask dropbox
 cask github-desktop
-cask gitkraken
 cask karabiner
 cask onyx
 cask parallels-desktop

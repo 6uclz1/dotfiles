@@ -6,8 +6,8 @@
 # EXPORT
 ###############################################################################
 # language environment
-export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
@@ -27,6 +27,7 @@ autojump \
 brew \
 brew-cask \
 bundler \
+cask \
 cdd \
 colored-man \
 composer \
@@ -292,7 +293,6 @@ eval "$(rbenv init -)"
 # Python env
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 
 
