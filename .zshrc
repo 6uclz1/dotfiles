@@ -242,7 +242,7 @@ prompt_agnoster_setup "$@"
 # "cd" automatically after "ls"
 function chpwd
 {
-  ls -a
+  ls -lhA
 }
 
 # "cd" automatically after "git clone"
@@ -269,8 +269,13 @@ function mkdir
 ###############################################################################
 # Open Atom
 alias atom="open -a /Users/$USER/Applications/Atom.app"
+# back directory
+alias ..="cd .."
 # shortcut
-alias .zshrc="source ~/.zshrc"
+alias la="ls -a"
+alias ll="ls -lhA"
+# Reload zshrc
+alias zshrc="source ~/.zshrc"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
 # Homebrew warning avoid pyenv path.
