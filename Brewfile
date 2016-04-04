@@ -139,7 +139,6 @@ appstore 411213048 LadioCast
 appstore 890031187 Marked 2
 appstore 409203825 Numbers
 appstore 409201541 Pages
-appstore 967805235 Paste
 appstore 407963104 Pixelmator
 appstore 445189367 PopClip
 appstore 866773894 Quiver
