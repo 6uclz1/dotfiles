@@ -11,6 +11,8 @@ cask cycling74-max
 cask daisydisk
 cask dropbox
 cask github-desktop
+cask google-nik-collection
+cask google-photos-backup
 cask karabiner
 cask onyx
 cask parallels-desktop
@@ -18,27 +20,11 @@ cask processing
 cask sketch
 cask sourcetree
 
-tap homebrew/python
-brew numpy
-
-tap homebrew/science
-brew hdf5
-brew opencv
-
-tap homebrew/versions
-brew glfw3
-
-tap rcmdnk/file
-brew brew-file
-
-tap sanemat/font
-
-# Other Homebrew packages
+tap homebrew/core
 brew autoconf
 brew automake
-brew berkeley-db
-brew boost
 brew boost-python
+brew boost
 brew cabal-install
 brew cairo
 brew cmake
@@ -57,7 +43,6 @@ brew gdbm
 brew gettext
 brew gflags
 brew ghc
-brew glib
 brew glog
 brew gmp
 brew go
@@ -70,7 +55,6 @@ brew isl
 brew jack
 brew jpeg
 brew lame
-brew leveldb
 brew libass
 brew libevent
 brew libffi
@@ -87,14 +71,11 @@ brew libvo-aacenc
 brew libvorbis
 brew libyaml
 brew little-cms2
-brew lmdb
 brew lua
 brew mackup
-brew mpfr
 brew mpv
 brew mysql
 brew node
-brew openexr
 brew openssl
 brew pango
 brew pcre
@@ -102,8 +83,8 @@ brew peco
 brew pixman
 brew pkg-config
 brew protobuf --devel
-brew pyenv
 brew pyenv-virtualenv
+brew pyenv
 brew python
 brew python3
 brew rbenv
@@ -121,13 +102,37 @@ brew xvid
 brew xz
 brew youtube-dl
 brew zeromq
-brew zsh
 brew zsh-completions
 brew zsh-syntax-highlighting
+brew zsh
+
+tap homebrew/python
+brew numpy
+
+tap homebrew/science
+brew hdf5
+brew opencv
+
+tap homebrew/versions
+brew glfw3
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+
+# Other Homebrew packages
+brew berkeley-db
+brew glib
+brew leveldb
+brew lmdb
+brew mpfr
+brew openexr
 
 # App Store applications
 appstore 443987910 1Password
 appstore 824171161 Affinity Designer
+appstore 824183456 Affinity Photo
 appstore 974971992 Alternote
 appstore 417375580 BetterSnapTool
 appstore 641027709 Color Picker
