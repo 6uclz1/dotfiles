@@ -59,6 +59,15 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
+(defun mouse-scroll-down ()
+  (interactive)
+  (scroll-down 1))
+(defun mouse-scroll-up ()
+  (interactive)
+  (scroll-up 1))
+
+(global-set-key [wheel-up] 'mouse-scroll-down)
+(global-set-key [wheel-down] 'mouse-scroll-up)
 
 ;; El-get packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -69,10 +78,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 ;; (ac-set-trigger-key "TAB")
 ;; 補完が出るまでの時間
 ;; (setq ac-quick-help-delay 0.5)
-
-;; solarized
-(el-get-bundle color-theme-solarized)
-(load-theme 'solarized t)
 
 ;; markdown-mode
 (el-get-bundle markdown-mode)
