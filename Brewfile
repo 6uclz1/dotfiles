@@ -7,6 +7,7 @@ brew mas
 tap caskroom/cask
 cask alfred
 cask atom
+cask colorpicker-skalacolor
 cask cycling74-max
 cask daisydisk
 cask dropbox
@@ -138,7 +139,6 @@ appstore 417375580 BetterSnapTool
 appstore 641027709 Color Picker
 appstore 449589707 Dash
 appstore 422304217 Day One Classic
-appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
 appstore 890031187 Marked 2
