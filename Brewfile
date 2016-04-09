@@ -7,13 +7,16 @@ brew mas
 tap caskroom/cask
 cask alfred
 cask atom
+cask bettertouchtool
 cask colorpicker-skalacolor
 cask cycling74-max
 cask daisydisk
 cask dropbox
+cask firefox
 cask github-desktop
 cask google-nik-collection
 cask google-photos-backup
+cask java
 cask karabiner
 cask onyx
 cask parallels-desktop
@@ -54,6 +57,7 @@ brew ilmbase
 brew imagemagick
 brew isl
 brew jack
+brew jenv
 brew jpeg
 brew lame
 brew libass
@@ -135,10 +139,11 @@ appstore 443987910 1Password
 appstore 824171161 Affinity Designer
 appstore 824183456 Affinity Photo
 appstore 974971992 Alternote
-appstore 417375580 BetterSnapTool
 appstore 641027709 Color Picker
 appstore 449589707 Dash
 appstore 422304217 Day One Classic
+appstore 668208984 GIPHY CAPTURE
+appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
 appstore 890031187 Marked 2
