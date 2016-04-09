@@ -308,3 +308,5 @@ function pyenv-version-check
 }
 
 RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check`%{$reset_color%}'
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
