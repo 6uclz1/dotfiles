@@ -13,9 +13,12 @@ cask cycling74-max
 cask daisydisk
 cask dropbox
 cask firefox
+cask flux
 cask github-desktop
+cask google-drive
 cask google-nik-collection
 cask google-photos-backup
+cask handbrake
 cask java
 cask karabiner
 cask onyx
