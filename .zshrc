@@ -281,6 +281,8 @@ alias nyan='nc -v nyancat.dakko.us 23'
 # Homebrew warning avoid pyenv path.
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
+alias msfconsole="/opt/metasploit-framework/bin/msfconsole"
+
 ###############################################################################
 # PROGRAMMING
 ###############################################################################
@@ -295,6 +297,12 @@ export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"
 
 eval "$(rbenv init -)"
+
+function brew() {
+  if [ -f $(brew --prefix)/etc/brew-wrap ];then
+    source $(brew --prefix)/etc/brew-wrap
+  fi
+}
 
 function gem(){
   $HOME/.rbenv/shims/gem $*
