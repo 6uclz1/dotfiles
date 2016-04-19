@@ -15,7 +15,6 @@ cask dropbox
 cask firefox
 cask flux
 cask github-desktop
-cask google-drive
 cask google-nik-collection
 cask google-photos-backup
 cask handbrake
@@ -83,6 +82,8 @@ brew lua
 brew mackup
 brew mpv
 brew mysql
+brew nicovideo-dl
+brew nmap
 brew node
 brew openssl
 brew pango
@@ -90,6 +91,7 @@ brew pcre
 brew peco
 brew pixman
 brew pkg-config
+brew postgresql
 brew protobuf --devel
 brew pyenv-virtualenv
 brew pyenv
@@ -158,5 +160,6 @@ appstore 866773894 Quiver
 appstore 803453959 Slack
 appstore 425424353 The Unarchiver
 appstore 557168941 Tweetbot
+appstore 1024069033 Veertu
 appstore 493949693 iMage Tools
 appstore 408981434 iMovie
