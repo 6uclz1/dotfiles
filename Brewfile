@@ -26,6 +26,7 @@ cask parallels-desktop
 cask processing
 cask sketch
 cask sourcetree
+cask xld
 
 tap homebrew/core
 brew autoconf
