@@ -18,6 +18,7 @@ cask github-desktop
 cask google-nik-collection
 cask google-photos-backup
 cask handbrake
+cask iterm2
 cask java
 cask karabiner
 cask onyx
@@ -130,6 +131,9 @@ tap rcmdnk/file
 brew brew-file
 
 tap sanemat/font
+
+tap zyedidia/micro
+brew micro --devel
 
 # Other Homebrew packages
 brew berkeley-db

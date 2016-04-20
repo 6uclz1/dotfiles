@@ -16,8 +16,8 @@ bindkey -e
 
 # history
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=1_000_000
+SAVEHIST=1_000_000
 
 plugins=\
 (\
@@ -54,7 +54,6 @@ zsh-syntax-highlighting \
 # SOURCE
 ###############################################################################
 # export MANPATH="/usr/local/man:$MANPATH"
-source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ###############################################################################
