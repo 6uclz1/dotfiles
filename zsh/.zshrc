@@ -11,6 +11,9 @@ export LC_ALL=en_US.UTF-8
 
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
+# Don't send analytics
+export HOMEBREW_NO_ANALYTICS=1
+
 # emacs like keybind
 bindkey -e
 
