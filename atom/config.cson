@@ -4,6 +4,9 @@
   "atom-material-ui":
     fonts: {}
   core:
+    disabledPackages: [
+      "activate-power-mode"
+    ]
     projectHome: "~/Code"
   editor:
     fontFamily: "Ricty"

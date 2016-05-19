@@ -31,6 +31,7 @@ cask xld
 tap homebrew/core
 brew autoconf
 brew automake
+brew berkeley-db
 brew boost-python
 brew boost
 brew cabal-install
@@ -51,6 +52,7 @@ brew gdbm
 brew gettext
 brew gflags
 brew ghc
+brew glib
 brew glog
 brew gmp
 brew go
@@ -64,6 +66,7 @@ brew jack
 brew jenv
 brew jpeg
 brew lame
+brew leveldb
 brew libass
 brew libevent
 brew libffi
@@ -80,13 +83,16 @@ brew libvo-aacenc
 brew libvorbis
 brew libyaml
 brew little-cms2
+brew lmdb
 brew lua
 brew mackup
+brew mpfr
 brew mpv
 brew mysql
 brew nicovideo-dl
 brew nmap
 brew node
+brew openexr
 brew openssl
 brew pango
 brew pcre
@@ -135,14 +141,6 @@ tap sanemat/font
 
 tap zyedidia/micro
 brew micro --devel
-
-# Other Homebrew packages
-brew berkeley-db
-brew glib
-brew leveldb
-brew lmdb
-brew mpfr
-brew openexr
 
 # App Store applications
 appstore 443987910 1Password
