@@ -150,8 +150,6 @@ appstore 974971992 Alternote
 appstore 641027709 Color Picker
 appstore 449589707 Dash
 appstore 422304217 Day One Classic
-appstore 668208984 GIPHY CAPTURE
-appstore 682658836 GarageBand
 appstore 409183694 Keynote
 appstore 411213048 LadioCast
 appstore 890031187 Marked 2
@@ -160,9 +158,7 @@ appstore 409201541 Pages
 appstore 407963104 Pixelmator
 appstore 445189367 PopClip
 appstore 866773894 Quiver
-appstore 803453959 Slack
 appstore 425424353 The Unarchiver
 appstore 557168941 Tweetbot
 appstore 1024069033 Veertu
-appstore 493949693 iMage Tools
 appstore 408981434 iMovie
