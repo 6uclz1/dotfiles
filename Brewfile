@@ -31,6 +31,7 @@ cask xld
 tap homebrew/core
 brew autoconf
 brew automake
+brew bazel
 brew berkeley-db
 brew boost-python
 brew boost
@@ -52,6 +53,7 @@ brew gdbm
 brew gettext
 brew gflags
 brew ghc
+brew ghostscript
 brew glib
 brew glog
 brew gmp
