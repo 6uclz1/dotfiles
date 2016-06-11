@@ -270,7 +270,7 @@ function mkdir
 # ALIAS
 ###############################################################################
 # Open Atom
-alias atom="open -a /Users/$USER/Applications/Atom.app"
+alias atom="open -a /Applications/Atom.app"
 # back directory
 alias ..="cd .."
 # shortcut
