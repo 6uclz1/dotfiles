@@ -13,166 +13,167 @@ fi
 
 # tap repositories and their packages
 
-tap argon/mas
-brew mas
+brew tap argon/mas
+brew install mas
 
-tap caskroom/cask
-cask alfred
-cask atom
-cask bettertouchtool
-cask colorpicker-skalacolor
-cask cycling74-max
-cask daisydisk
-cask dropbox
-cask firefox
-cask flux
-cask github-desktop
-cask google-nik-collection
-cask google-photos-backup
-cask handbrake
-cask iterm2
-cask java
-cask karabiner
-cask onyx
-cask parallels-desktop
-cask processing
-cask sketch
-cask sourcetree
-cask xld
+brew tap caskroom/cask
+brew cask install alfred
+brew cask install atom
+brew cask install bettertouchtool
+brew cask install colorpicker-skalacolor
+brew cask install cycling74-max
+brew cask install daisydisk
+brew cask install dropbox
+brew cask install firefox
+brew cask install flux
+brew cask install github-desktop
+brew cask install google-nik-collection
+brew cask install google-photos-backup
+brew cask install handbrake
+brew cask install iterm2
+brew cask install java
+brew cask install karabiner
+brew cask install onyx
+brew cask install parallels-desktop
+brew cask install processing
+brew cask install sketch
+brew cask install sourcetree
+brew cask install xld
 
-tap homebrew/core
-brew autoconf
-brew automake
-brew bazel
-brew berkeley-db
-brew boost-python
-brew boost
-brew cabal-install
-brew cairo
-brew cmake
-brew coreutils
-brew czmq
-brew eigen
-brew emacs
-brew ffmpeg
-brew flac
-brew fontconfig
-brew fontforge
-brew freetype
-brew fribidi
-brew gcc
-brew gdbm
-brew gettext
-brew gflags
-brew ghc
-brew ghostscript
-brew glib
-brew glog
-brew gmp
-brew go
-brew gobject-introspection
-brew harfbuzz
-brew icu4c
-brew ilmbase
-brew imagemagick
-brew isl
-brew jack
-brew jenv
-brew jpeg
-brew lame
-brew leveldb
-brew libass
-brew libevent
-brew libffi
-brew liblo
-brew libmpc
-brew libogg
-brew libpng
-brew libsamplerate
-brew libsndfile
-brew libsodium
-brew libtiff
-brew libtool
-brew libvo-aacenc
-brew libvorbis
-brew libyaml
-brew little-cms2
-brew lmdb
-brew lua
-brew mackup
-brew mpfr
-brew mpv
-brew mysql
-brew nicovideo-dl
-brew nmap
-brew node
-brew openexr
-brew openssl
-brew pango
-brew pcre
-brew peco
-brew pixman
-brew pkg-config
-brew postgresql
-brew protobuf --devel
-brew pyenv-virtualenv
-brew pyenv
-brew python
-brew python3
-brew rbenv
-brew readline
-brew reattach-to-user-namespace
-brew ruby-build
-brew snappy
-brew sqlite
-brew sshrc
-brew szip
-brew tmux
-brew wget
-brew x264
-brew xvid
-brew xz
-brew youtube-dl
-brew zeromq
-brew zsh-completions
-brew zsh-syntax-highlighting
-brew zsh
+brew tap homebrew/core
+brew install autoconf
+brew install automake
+brew install bazel
+brew install berkeley-db
+brew install boost-python
+brew install boost
+brew install cabal-install
+brew install cairo
+brew install cmake
+brew install coreutils
+brew install czmq
+brew install eigen
+brew install emacs
+brew install ffmpeg
+brew install flac
+brew install fontconfig
+brew install fontforge
+brew install freetype
+brew install fribidi
+brew install gcc
+brew install gdbm
+brew install gettext
+brew install gflags
+brew install ghc
+brew install ghostscript
+brew install glib
+brew install glog
+brew install gmp
+brew install go
+brew install gobject-introspection
+brew install harfbuzz
+brew install icu4c
+brew install ilmbase
+brew install imagemagick
+brew install isl
+brew install jack
+brew install jenv
+brew install jpeg
+brew install lame
+brew install leveldb
+brew install libass
+brew install libevent
+brew install libffi
+brew install liblo
+brew install libmpc
+brew install libogg
+brew install libpng
+brew install libsamplerate
+brew install libsndfile
+brew install libsodium
+brew install libtiff
+brew install libtool
+brew install libvo-aacenc
+brew install libvorbis
+brew install libyaml
+brew install little-cms2
+brew install lmdb
+brew install lua
+brew install mackup
+brew install mpfr
+brew install mpv
+brew install mysql
+brew install nicovideo-dl
+brew install nmap
+brew install node
+brew install openexr
+brew install openssl
+brew install pango
+brew install pcre
+brew install peco
+brew install pixman
+brew install pkg-config
+brew install postgresql
+brew install protobuf --devel
+brew install pyenv-virtualenv
+brew install pyenv
+brew install python
+brew install python3
+brew install rbenv
+brew install readline
+brew install reattach-to-user-namespace
+brew install ruby-build
+brew install snappy
+brew install sqlite
+brew install sshrc
+brew install szip
+brew install tmux
+brew install wget
+brew install x264
+brew install xvid
+brew install xz
+brew install youtube-dl
+brew install zeromq
+brew install zsh-completions
+brew install zsh-syntax-highlighting
+brew install zsh
 
-tap homebrew/python
-brew numpy
+brew tap homebrew/python
+brew install numpy
 
-tap homebrew/science
-brew hdf5
-brew opencv
+brew tap homebrew/science
+brew install hdf5
+brew install opencv
 
-tap homebrew/versions
-brew glfw3
+brew tap homebrew/versions
+brew install glfw3
 
-tap rcmdnk/file
-brew brew-file
+brew tap rcmdnk/file
+brew install brew-file
 
-tap sanemat/font
+brew tap sanemat/font
 
-tap zyedidia/micro
-brew micro --devel
+brew tap zyedidia/micro
+brew install micro --devel
 
 # App Store applications
-appstore 443987910 1Password
-appstore 824171161 Affinity Designer
-appstore 824183456 Affinity Photo
-appstore 974971992 Alternote
-appstore 641027709 Color Picker
-appstore 449589707 Dash
-appstore 422304217 Day One Classic
-appstore 409183694 Keynote
-appstore 411213048 LadioCast
-appstore 890031187 Marked 2
-appstore 409203825 Numbers
-appstore 409201541 Pages
-appstore 407963104 Pixelmator
-appstore 445189367 PopClip
-appstore 866773894 Quiver
-appstore 425424353 The Unarchiver
-appstore 557168941 Tweetbot
-appstore 1024069033 Veertu
-appstore 408981434 iMovie
+mas install 443987910 #1Password
+mas install 824171161 #Affinity Designer
+mas install 824183456 #Affinity Photo
+mas install 974971992 #Alternote
+mas install 641027709 #Color Picker
+mas install 449589707 #Dash
+mas install 422304217 #Day One Classic
+mas install 409183694 #Keynote
+mas install 411213048 #LadioCast
+mas install 890031187 #Marked 2
+mas install 409203825 #Numbers
+mas install 409201541 #Pages
+mas install 407963104 #Pixelmator
+mas install 445189367 #PopClip
+mas install 866773894 #Quiver
+mas install 425424353 #The Unarchiver
+mas install 557168941 #Tweetbot
+mas install 1024069033 #Veertu
+mas install 497799835 #Xcode
+mas install 408981434 #iMovie
