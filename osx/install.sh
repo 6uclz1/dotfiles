@@ -40,6 +40,8 @@ brew cask install sketch
 brew cask install sourcetree
 brew cask install xld
 
+brew tap homebrew/bundle
+
 brew tap homebrew/core
 brew install autoconf
 brew install automake
@@ -156,7 +158,42 @@ brew tap sanemat/font
 brew tap zyedidia/micro
 brew install micro --devel
 
+# Cask applications
+brew cask install   --caskroom=/opt/homebrew-cask/Caskroom
+
+# Below applications were installed by Cask,
+# but do not have corresponding casks.
+
+#brew cask install Warning: The default Caskroom location has moved to /usr/local/Caskroom.
+#brew cask install 
+#brew cask install Please migrate your Casks to the new location, or if you would like to keep your
+#brew cask install Caskroom at /opt/homebrew-cask/Caskroom, add the following to your HOMEBREW_CASK_OPTS:
+#brew cask install 
+#brew cask install 
+#brew cask install For more details on each of those options, see https://github.com/caskroom/homebrew-cask/issues/21913.
+
 # App Store applications
+#appstore 443987910 1Password
+#appstore 824171161 Affinity Designer
+#appstore 824183456 Affinity Photo
+#appstore 974971992 Alternote
+#appstore 641027709 Color Picker
+#appstore 449589707 Dash
+#appstore 422304217 Day One Classic
+#appstore 409183694 Keynote
+#appstore 411213048 LadioCast
+#appstore 890031187 Marked 2
+#appstore 409203825 Numbers
+#appstore 409201541 Pages
+#appstore 407963104 Pixelmator
+#appstore 445189367 PopClip
+#appstore 866773894 Quiver
+#appstore 425424353 The Unarchiver
+#appstore 557168941 Tweetbot
+#appstore 497799835 Xcode
+#appstore 408981434 iMovie
+
+# Other commands
 mas install 443987910 #1Password
 mas install 824171161 #Affinity Designer
 mas install 824183456 #Affinity Photo
