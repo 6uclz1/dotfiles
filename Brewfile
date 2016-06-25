@@ -162,5 +162,4 @@ appstore 445189367 PopClip
 appstore 866773894 Quiver
 appstore 425424353 The Unarchiver
 appstore 557168941 Tweetbot
-appstore 1024069033 Veertu
 appstore 408981434 iMovie
