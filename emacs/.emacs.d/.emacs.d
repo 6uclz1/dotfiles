@@ -1,1 +1,0 @@
-/Users/6uclz1/dotfiles/emacs/.emacs.d
