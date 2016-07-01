@@ -8,7 +8,7 @@ after install Xcode
     $ sudo xcodebuild -license
     $ xcode-select --install
 
-Set font Ricty + Powerline (It's Private! Sorry...)
+Set font Ricty + Powerline
 
     $ git clone https://github.com/6uclz1/Fonts
     
