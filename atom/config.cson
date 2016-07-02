@@ -21,6 +21,12 @@
       pigments: true
       pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
   tidal: {}
   welcome:
     showOnStartup: false
