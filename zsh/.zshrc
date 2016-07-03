@@ -14,6 +14,8 @@ export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 # Don't send analytics
 export HOMEBREW_NO_ANALYTICS=1
 
+export MANPATH=$MANPATH:/Users/USERNAME/Documents/CentOS/usr/share/man/ja
+
 # emacs like keybind
 bindkey -e
 
@@ -284,6 +286,8 @@ alias nyan='nc -v nyancat.dakko.us 23'
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
 alias msfconsole="/opt/metasploit-framework/bin/msfconsole"
+
+alias installsh="brew file -f ~/install.sh -F cmd init"
 
 ###############################################################################
 # PROGRAMMING
