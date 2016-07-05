@@ -15,12 +15,15 @@ cask dropbox
 cask firefox
 cask flux
 cask github-desktop
+cask google-japanese-ime
 cask google-nik-collection
 cask google-photos-backup
 cask handbrake
+cask imageoptim
 cask iterm2
 cask java
 cask karabiner
+cask keyboard-cleaner
 cask onyx
 cask parallels-desktop
 cask processing
@@ -28,7 +31,11 @@ cask sketch
 cask sourcetree
 cask xld
 
+tap caskroom/fonts
+cask font-inconsolata
+
 tap homebrew/core
+brew android-platform-tools
 brew autoconf
 brew automake
 brew bazel
@@ -42,6 +49,7 @@ brew coreutils
 brew czmq
 brew eigen
 brew emacs
+brew fdupes
 brew ffmpeg
 brew flac
 brew fontconfig
@@ -54,6 +62,8 @@ brew gettext
 brew gflags
 brew ghc
 brew ghostscript
+brew git-cal
+brew git
 brew glib
 brew glog
 brew gmp
@@ -90,6 +100,7 @@ brew lua
 brew mackup
 brew mpfr
 brew mpv
+brew mycli
 brew mysql
 brew nicovideo-dl
 brew nmap
@@ -103,6 +114,7 @@ brew pixman
 brew pkg-config
 brew postgresql
 brew protobuf --devel
+brew pv
 brew pyenv-virtualenv
 brew pyenv
 brew python
@@ -114,6 +126,7 @@ brew ruby-build
 brew snappy
 brew sqlite
 brew sshrc
+brew stormssh
 brew szip
 brew tmux
 brew wget
