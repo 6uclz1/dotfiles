@@ -287,7 +287,7 @@ alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
 alias msfconsole="/opt/metasploit-framework/bin/msfconsole"
 
-alias installsh="brew file -f ~/install.sh -F cmd init"
+alias installsh="brew file -f ~/dotfiles/osx/install.sh -F cmd init"
 
 ###############################################################################
 # PROGRAMMING

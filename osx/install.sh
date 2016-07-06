@@ -27,12 +27,15 @@ brew cask install dropbox
 brew cask install firefox
 brew cask install flux
 brew cask install github-desktop
+brew cask install google-japanese-ime
 brew cask install google-nik-collection
 brew cask install google-photos-backup
 brew cask install handbrake
+brew cask install imageoptim
 brew cask install iterm2
 brew cask install java
 brew cask install karabiner
+brew cask install keyboard-cleaner
 brew cask install onyx
 brew cask install parallels-desktop
 brew cask install processing
@@ -40,9 +43,11 @@ brew cask install sketch
 brew cask install sourcetree
 brew cask install xld
 
-brew tap homebrew/bundle
+brew tap caskroom/fonts
+brew cask install font-inconsolata
 
 brew tap homebrew/core
+brew install android-platform-tools
 brew install autoconf
 brew install automake
 brew install bazel
@@ -56,6 +61,7 @@ brew install coreutils
 brew install czmq
 brew install eigen
 brew install emacs
+brew install fdupes
 brew install ffmpeg
 brew install flac
 brew install fontconfig
@@ -68,6 +74,8 @@ brew install gettext
 brew install gflags
 brew install ghc
 brew install ghostscript
+brew install git-cal
+brew install git
 brew install glib
 brew install glog
 brew install gmp
@@ -104,6 +112,7 @@ brew install lua
 brew install mackup
 brew install mpfr
 brew install mpv
+brew install mycli
 brew install mysql
 brew install nicovideo-dl
 brew install nmap
@@ -117,6 +126,7 @@ brew install pixman
 brew install pkg-config
 brew install postgresql
 brew install protobuf --devel
+brew install pv
 brew install pyenv-virtualenv
 brew install pyenv
 brew install python
@@ -128,6 +138,7 @@ brew install ruby-build
 brew install snappy
 brew install sqlite
 brew install sshrc
+brew install stormssh
 brew install szip
 brew install tmux
 brew install wget
@@ -158,20 +169,6 @@ brew tap sanemat/font
 brew tap zyedidia/micro
 brew install micro --devel
 
-# Cask applications
-brew cask install   --caskroom=/opt/homebrew-cask/Caskroom
-
-# Below applications were installed by Cask,
-# but do not have corresponding casks.
-
-#brew cask install Warning: The default Caskroom location has moved to /usr/local/Caskroom.
-#brew cask install 
-#brew cask install Please migrate your Casks to the new location, or if you would like to keep your
-#brew cask install Caskroom at /opt/homebrew-cask/Caskroom, add the following to your HOMEBREW_CASK_OPTS:
-#brew cask install 
-#brew cask install 
-#brew cask install For more details on each of those options, see https://github.com/caskroom/homebrew-cask/issues/21913.
-
 # App Store applications
 #appstore 443987910 1Password
 #appstore 824171161 Affinity Designer
@@ -190,7 +187,6 @@ brew cask install   --caskroom=/opt/homebrew-cask/Caskroom
 #appstore 866773894 Quiver
 #appstore 425424353 The Unarchiver
 #appstore 557168941 Tweetbot
-#appstore 497799835 Xcode
 #appstore 408981434 iMovie
 
 # Other commands
