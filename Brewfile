@@ -29,6 +29,7 @@ cask parallels-desktop
 cask processing
 cask sketch
 cask sourcetree
+cask visual-studio-code
 cask xld
 
 tap caskroom/fonts
