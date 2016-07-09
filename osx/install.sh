@@ -41,6 +41,7 @@ brew cask install parallels-desktop
 brew cask install processing
 brew cask install sketch
 brew cask install sourcetree
+brew cask install visual-studio-code
 brew cask install xld
 
 brew tap caskroom/fonts
