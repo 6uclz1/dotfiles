@@ -289,6 +289,8 @@ alias msfconsole="/opt/metasploit-framework/bin/msfconsole"
 
 alias installsh="brew file -f ~/dotfiles/osx/install.sh -F cmd init"
 
+alias uncrustify="/opt/uncrustify"
+
 ###############################################################################
 # PROGRAMMING
 ###############################################################################

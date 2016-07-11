@@ -1,6 +1,7 @@
 "*":
   "atom-beautify":
-    _analyticsUserId: "4c12ec3b-cead-4ae7-a26a-8836aa45e826"
+    general:
+      _analyticsUserId: "4c12ec3b-cead-4ae7-a26a-8836aa45e826"
   "atom-material-ui":
     fonts: {}
   core:

@@ -130,6 +130,7 @@ brew sshrc
 brew stormssh
 brew szip
 brew tmux
+brew uncrustify
 brew wget
 brew x264
 brew xvid
