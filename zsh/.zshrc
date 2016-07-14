@@ -306,13 +306,21 @@ export PATH="$RBENV_ROOT/bin:$PATH"
 
 eval "$(rbenv init -)"
 
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+
 function brew() {
   if [ -f $(brew --prefix)/etc/brew-wrap ];then
     source $(brew --prefix)/etc/brew-wrap
   fi
 }
 
-function gem(){
+function gem() {
   $HOME/.rbenv/shims/gem $*
   if [ "$1" = "install" ]   || [ "$1" = "i" ] || \
      [ "$1" = "uninstall" ] || [ "$1" = "uni" ]
@@ -321,7 +329,7 @@ function gem(){
   fi
 }
 
-function bundle(){
+function bundle() {
   $HOME/.rbenv/shims/bundle $*
   if [ "$1" = "install" ] || [ "$1" = "update" ]
   then
@@ -336,8 +344,7 @@ eval "$(pyenv init -)"
 
 
 # Pyenv Version show right prompt
-function pyenv-version-check
-{
+function pyenv-version-check {
   echo `pyenv version | cut -c 1-9`
 }
 
