@@ -312,7 +312,6 @@ function share_history {
     history -r
 }
 PROMPT_COMMAND='share_history'
-shopt -u histappend
 
 function brew() {
   if [ -f $(brew --prefix)/etc/brew-wrap ];then
