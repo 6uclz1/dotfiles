@@ -16,6 +16,8 @@
     tabLength: 4
   "exception-reporting":
     userId: "7612ea13-e6a5-794b-dfae-d222d4257fb5"
+  linter:
+    showErrorPanel: false
   minimap:
     displayCodeHighlights: false
     plugins:

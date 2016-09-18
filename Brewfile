@@ -6,6 +6,7 @@ brew mas
 
 tap caskroom/cask
 cask alfred
+cask appcleaner
 cask atom
 cask bettertouchtool
 cask colorpicker-skalacolor
@@ -172,9 +173,12 @@ appstore 411213048 LadioCast
 appstore 890031187 Marked 2
 appstore 409203825 Numbers
 appstore 409201541 Pages
+appstore 967805235 Paste
 appstore 407963104 Pixelmator
 appstore 445189367 PopClip
 appstore 866773894 Quiver
+appstore 962713362 TUT Touch Typing
 appstore 425424353 The Unarchiver
 appstore 557168941 Tweetbot
+appstore 497799835 Xcode
 appstore 408981434 iMovie
