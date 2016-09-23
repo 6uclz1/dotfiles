@@ -18,14 +18,12 @@ brew install mas
 
 brew tap caskroom/cask
 brew cask install alfred
-brew cask install appcleaner
 brew cask install atom
 brew cask install bettertouchtool
 brew cask install colorpicker-skalacolor
 brew cask install cycling74-max
 brew cask install daisydisk
 brew cask install dropbox
-brew cask install filezilla
 brew cask install firefox
 brew cask install flux
 brew cask install github-desktop
@@ -138,14 +136,12 @@ brew install rbenv
 brew install readline
 brew install reattach-to-user-namespace
 brew install ruby-build
-brew install shellcheck
 brew install snappy
 brew install sqlite
 brew install sshrc
 brew install stormssh
 brew install szip
 brew install tmux
-brew install uncrustify
 brew install wget
 brew install x264
 brew install xvid
@@ -187,14 +183,11 @@ brew install micro --devel
 #appstore 890031187 Marked 2
 #appstore 409203825 Numbers
 #appstore 409201541 Pages
-#appstore 967805235 Paste
 #appstore 407963104 Pixelmator
 #appstore 445189367 PopClip
 #appstore 866773894 Quiver
-#appstore 962713362 TUT Touch Typing
 #appstore 425424353 The Unarchiver
 #appstore 557168941 Tweetbot
-#appstore 497799835 Xcode
 #appstore 408981434 iMovie
 
 # Other commands

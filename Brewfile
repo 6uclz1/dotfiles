@@ -13,7 +13,6 @@ cask colorpicker-skalacolor
 cask cycling74-max
 cask daisydisk
 cask dropbox
-cask filezilla
 cask firefox
 cask flux
 cask github-desktop
@@ -126,7 +125,6 @@ brew rbenv
 brew readline
 brew reattach-to-user-namespace
 brew ruby-build
-brew shellcheck
 brew snappy
 brew sqlite
 brew sshrc
