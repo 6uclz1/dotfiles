@@ -25,20 +25,29 @@ brew cask install colorpicker-skalacolor
 brew cask install cycling74-max
 brew cask install daisydisk
 brew cask install dropbox
+brew cask install filezilla
 brew cask install firefox
 brew cask install flux
 brew cask install github-desktop
 brew cask install google-japanese-ime
 brew cask install google-nik-collection
 brew cask install google-photos-backup
+brew cask install handbrake
+brew cask install imageoptim
+brew cask install iterm2
 brew cask install java
+brew cask install karabiner
 brew cask install keyboard-cleaner
 brew cask install onyx
 brew cask install parallels-desktop
 brew cask install processing
 brew cask install sketch
 brew cask install sourcetree
+brew cask install visual-studio-code
 brew cask install xld
+
+brew tap caskroom/fonts
+brew cask install font-inconsolata
 
 brew tap homebrew/core
 brew install android-platform-tools
@@ -48,6 +57,7 @@ brew install bazel
 brew install berkeley-db
 brew install boost-python
 brew install boost
+brew install cabal-install
 brew install cairo
 brew install cmake
 brew install coreutils
@@ -57,6 +67,8 @@ brew install emacs
 brew install fdupes
 brew install ffmpeg
 brew install flac
+brew install fontconfig
+brew install fontforge
 brew install freetype
 brew install fribidi
 brew install gcc
@@ -157,6 +169,8 @@ brew install glfw3
 brew tap rcmdnk/file
 brew install brew-file
 
+brew tap sanemat/font
+
 brew tap zyedidia/micro
 brew install micro --devel
 
@@ -177,6 +191,7 @@ brew install micro --devel
 #appstore 407963104 Pixelmator
 #appstore 445189367 PopClip
 #appstore 866773894 Quiver
+#appstore 962713362 TUT Touch Typing
 #appstore 425424353 The Unarchiver
 #appstore 557168941 Tweetbot
 #appstore 497799835 Xcode
@@ -200,5 +215,6 @@ mas install 445189367 #PopClip
 mas install 866773894 #Quiver
 mas install 425424353 #The Unarchiver
 mas install 557168941 #Tweetbot
+mas install 1024069033 #Veertu
 mas install 497799835 #Xcode
 mas install 408981434 #iMovie
