@@ -1,18 +1,2 @@
-activate-power-mode@0.5.2
-atom-beautify@0.29.8
-autocomplete@0.47.0
-autocomplete-glsl@0.2.3
-autocomplete-python@1.8.1
-color-picker@2.1.1
-file-icons@1.7.15
-highlight-selected@0.11.2
-language-glsl@2.0.1
-linter@1.11.11
-minimap@4.24.6
-open-terminal-here@2.1.4
-pigments@0.29.2
-regex-railroad-diagram@0.16.0
-tidal@2.1.0
-wordcount@2.6.0
-
-
+Installing modules [32m✓
+[39m
