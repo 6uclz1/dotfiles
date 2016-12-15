@@ -14,8 +14,6 @@ export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 # Don't send analytics
 export HOMEBREW_NO_ANALYTICS=1
 
-export MANPATH=$MANPATH:/Users/USERNAME/Documents/CentOS/usr/share/man/ja
-
 # emacs like keybind
 bindkey -e
 
@@ -52,6 +50,7 @@ tig \
 vagrant \
 web-search \
 zsh-completions \
+zsh-dircolors-solarized \
 zsh-syntax-highlighting \
 )
 
@@ -70,11 +69,18 @@ compinit -u
 autoload -U colors
 colors
 
+zmodload -a colors
+zmodload -a autocomplete
+zmodload -a complist
+
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 ##########################################################################
 # SETOPT
 ##########################################################################
 setopt auto_cd
 setopt auto_menu
+setopt auto_pushd
+setopt list_packed
 
 setopt hist_ignore_space
 setopt hist_reduce_blanks
@@ -93,12 +99,7 @@ REPORTTIME=3
 ##########################################################################
 # ZSTYLE
 ##########################################################################
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 ##########################################################################
 # THEME
@@ -115,8 +116,6 @@ CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
 export GREP_COLOR='1;33'
 
 # Begin a segment
@@ -208,6 +207,7 @@ prompt_status()
 }
 
 ## Main prompt
+
 prompt_agnoster_main()
 {
   RETVAL=$?
@@ -250,7 +250,7 @@ prompt_agnoster_setup "$@"
 # "cd" automatically after "ls"
 function chpwd
 {
-  ls -lhA
+  ls -ll -GF
 }
 
 # "cd" automatically after "git clone"
@@ -268,6 +268,15 @@ function mkdir
   command mkdir $1 && cd $1
 }
 
+function build_prompt {
+  prompt_segment black default '%(1?;%{%F{red}%}✘ ;)%(!;%{%F{yellow}%}⚡ ;)%(1j;%{%F{cyan}%}%j⚙ ;)%{%F{blue}%}%n%{%F{red}%}@%{%F{green}%}%M'
+  prompt_segment blue black '%2~'
+  if $git_status; then
+    prompt_segment green black '${(e)git_info[prompt]}${git_info[status]}'
+  fi
+  prompt_end
+}
+
 # Auto Run TMUX (optinal)
 # [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 # [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]
@@ -280,16 +289,13 @@ alias atom="open -a /Applications/Atom.app"
 # back directory
 alias ..="cd .."
 # shortcut
-alias la="ls -a"
-alias ll="ls -lhA"
+alias ls="ls -ll -GF"
 # Reload zshrc
 alias zshrc="source ~/.zshrc"
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
 # Homebrew warning avoid pyenv path.
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
-
-alias msfconsole="/opt/metasploit-framework/bin/msfconsole"
 
 alias installsh="brew file -f ~/dotfiles/osx/install.sh -F cmd init"
 
@@ -298,17 +304,6 @@ alias openzshrc="atom ~/.zshrc"
 ##########################################################################
 # PROGRAMMING
 ##########################################################################
-# Go lang env
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
-# Ruby env
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$RBENV_ROOT/bin:$PATH"
-
-eval "$(rbenv init -)"
 
 function share_history {
     history -a
@@ -323,23 +318,6 @@ function brew() {
   fi
 }
 
-function gem() {
-  $HOME/.rbenv/shims/gem $*
-  if [ "$1" = "install" ]   || [ "$1" = "i" ] || \
-     [ "$1" = "uninstall" ] || [ "$1" = "uni" ]
-  then
-    rbenv rehash
-  fi
-}
-
-function bundle() {
-  $HOME/.rbenv/shims/bundle $*
-  if [ "$1" = "install" ] || [ "$1" = "update" ]
-  then
-    rbenv rehash
-  fi
-}
-
 # Python env
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -348,9 +326,7 @@ eval "$(pyenv init -)"
 
 # Pyenv Version show right prompt
 function pyenv-version-check {
-  echo `pyenv version | cut -c 1-10`
+  echo `pyenv version-name`
 }
 
 RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check`%{$reset_color%}'
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
