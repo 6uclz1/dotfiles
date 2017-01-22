@@ -25,6 +25,7 @@ SAVEHIST=1_000_000
 plugins=\
 (\
 my-env \
+ag \
 atom \
 autojump \
 brew \
