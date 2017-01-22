@@ -1,18 +1,21 @@
 # dotfiles
 my dotfiles.❤️
 
-    $ git clone https://github.com/6uclz1/dotfiles/
-
-after install Xcode
+install Xcode.
 
     $ sudo xcodebuild -license
     $ xcode-select --install
 
-Set font Ricty + Powerline
+install homebrew.
 
-    $ git clone https://github.com/6uclz1/Fonts
-    
-Set crontab
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-    $ crontab -e
-    $ @reboot $HOME/dotfiles/osx/brewfile.sh
+get oh-my-zsh.
+
+    $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+clone this repo and run script.
+
+    $ cd ~
+    $ git clone https://github.com/6uclz1/dotfiles/
+    $ sh ./osx/symboliclink.sh
