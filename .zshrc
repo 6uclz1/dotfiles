@@ -331,3 +331,5 @@ function pyenv-version-check {
 }
 
 RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check`%{$reset_color%}'
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
