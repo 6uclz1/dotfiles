@@ -4,6 +4,7 @@ FILES=\
 "Rprofile \
 spacemacs \
 sshrc \
+tmux-osx.conf \
 tmux.conf \
 zlogin \
 zshenv \
