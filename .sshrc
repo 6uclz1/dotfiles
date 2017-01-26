@@ -1,5 +1,5 @@
 source ~/.bash_profile
-export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+export VIMINIT="let \$MYVIMRC='$SSHHOME/dotfiles/.sshrc.d/.vimrc' | source \$MYVIMRC"
 
 alias foo='echo I work with tmux, too'
 
@@ -10,7 +10,7 @@ tmuxrc() {
         mkdir -p $TMUXDIR
     fi
     rm -rf $TMUXDIR/.sshrc.d
-    cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
+    cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/dotfiles/.sshrc.d $TMUXDIR
     SSHHOME=$TMUXDIR SHELL=$TMUXDIR/bashsshrc /usr/bin/tmux -S $TMUXDIR/tmuxserver $@
 }
 export SHELL=`which bash`
