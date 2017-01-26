@@ -6,6 +6,7 @@ spacemacs \
 sshrc \
 tmux-osx.conf \
 tmux.conf \
+vim
 vimrc \
 zlogin \
 zshenv \

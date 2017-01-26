@@ -2,8 +2,6 @@
 # ZSHRC
 ##########################################################################
 
-
-
 ##########################################################################
 # EXPORT
 ##########################################################################
@@ -102,7 +100,6 @@ REPORTTIME=3
 ##########################################################################
 # ZSTYLE
 ##########################################################################
-
 
 ##########################################################################
 # THEME
@@ -326,14 +323,22 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-
 # Pyenv Version show right prompt
-function pyenv-version-check {
-  echo `pyenv version-name`
-}
-
-RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check`%{$reset_color%}'
+# function pyenv-version-check {
+#   echo `pyenv version-name`}
+# RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check`%{$reset_color%}'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-
+color_palette(){
+  for i in $(seq 0 4 255); do
+	for j in $(seq $i $(expr $i + 3)); do
+		for k in $(seq 1 $(expr 3 - ${#j})); do
+			printf " "
+		done
+		printf "\x1b[38;5;${j}mcolour${j}"
+		[[ $(expr $j % 4) != 3 ]] && printf "    "
+	done
+	printf "\n"
+  done
+}
