@@ -342,3 +342,12 @@ color_palette(){
 	printf "\n"
   done
 }
+
+netstattop(){
+	netstat -p | while l="$(line)";\
+ 		 do p="$(sed -En 's/^.*( [0-9]+)\/[^ ]*.*/\1/gp'<<<"$l")";\
+		     [ "$p" == "" ] || p=" ## $(ps -p $p -o cmd=)";\
+   			 echo "$l"$p;\
+  done
+}
+
