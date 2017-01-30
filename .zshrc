@@ -373,3 +373,11 @@ function mkdir
 # RPROMPT='%{$fg[yellow]%}pyenv > `pyenv-version-check`%{$reset_color%}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+netstattop(){
+	netstat -p | while l="$(line)";\
+ 		 do p="$(sed -En 's/^.*( [0-9]+)\/[^ ]*.*/\1/gp'<<<"$l")";\
+		     [ "$p" == "" ] || p=" ## $(ps -p $p -o cmd=)";\
+   			 echo "$l"$p;\
+  done
+}
