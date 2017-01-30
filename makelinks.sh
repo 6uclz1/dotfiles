@@ -4,11 +4,13 @@ FILES=\
 "Rprofile \
 spacemacs \
 sshrc \
+sshrc.d \
 tmux-osx.conf \
 tmux.conf \
 vim
 vimrc \
 zlogin \
+zprofile
 zshenv \
 zshrc"
 

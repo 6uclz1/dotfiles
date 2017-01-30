@@ -1,5 +1,6 @@
-""vimrc
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" .vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -14,6 +15,16 @@ set expandtab
 set softtabstop=4
 set autoindent
 set smartindent
+set number
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General Setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable beep
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -67,7 +78,6 @@ set sidescroll=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has('vim_starting')
-    " 初回起動時のみruntimepathにNeoBundleのパスを指定する
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 
     if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
@@ -99,3 +109,4 @@ NeoBundleCheck
 set background=dark
 colorscheme hybrid
 syntax on
+
