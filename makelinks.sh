@@ -7,10 +7,11 @@ sshrc \
 sshrc.d \
 tmux-osx.conf \
 tmux.conf \
-vim
+vim \
 vimrc \
 zlogin \
-zprofile
+zlogout \
+zprofile \
 zshenv \
 zshrc"
 

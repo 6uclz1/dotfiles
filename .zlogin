@@ -2,5 +2,17 @@
 # ZLOGIN
 ###############################################################################
 
-# Dupricate delete
-typeset -U path cdpath fpath manpath
+##########################################################################
+# ALIAS
+##########################################################################
+# Open Atom
+alias atom="open -a /Applications/Atom.app"
+# back directory
+alias ..="cd .."
+alias ..="cd ../.."
+# Nyan Cat :)
+alias nyan='nc -v nyancat.dakko.us 23'
+
+alias :q='exit'
+
+compdef sshrc=ssh
