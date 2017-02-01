@@ -38,8 +38,6 @@ set nocompatible
 set autoread
 set updatetime=0
 
-set rtp+=~/.fzf
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
