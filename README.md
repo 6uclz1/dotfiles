@@ -8,5 +8,5 @@ git
 
 run INSTALL
 
-    $ sh ./dotfiles/INSTALL
+    $ sh ./dotfiles/INSTALL.sh
     
