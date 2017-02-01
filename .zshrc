@@ -9,10 +9,6 @@ export CLICOLOR=true
 export LSCOLORS='exfxcxdxbxGxDxabagacad'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
-Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin
-Defaults    env_keep += "PATH"
-Defaults    env_keep += "PYENV_ROOT"
-
 ##########################################################################
 # ZGEN
 ##########################################################################
@@ -23,7 +19,7 @@ if ! zgen saved; then
 
   zgen load sindresorhus/pure
 
-  # generate the init script from plugins above
+# generate the init script from plugins above
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load zsh-users/zsh-history-substring-search
@@ -32,7 +28,6 @@ if ! zgen saved; then
 
   zgen load mollifier/anyframe
 
-  zgen oh-my-zsh plugins/brew
   zgen oh-my-zsh plugins/thefuck
 
   zgen oh-my-zsh plugins/pip
@@ -44,6 +39,25 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen save
 fi
+
+##########################################################################
+# EXPORT
+##########################################################################
+
+typeset -U path
+
+# language environment
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Don't send analytics
+export HOMEBREW_NO_ANALYTICS=1
+
+export EDITOR="/usr/bin/vim"
+
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
 
 ##########################################################################
 # SETOPT
@@ -86,9 +100,6 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_save_nodups
 
-localip(){
-  ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
-}
 ##########################################################################
 # TMUX
 ##########################################################################
