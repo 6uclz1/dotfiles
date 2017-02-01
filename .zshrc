@@ -3,13 +3,6 @@
 ##########################################################################
 
 ##########################################################################
-# LS_COLOR
-##########################################################################
-export CLICOLOR=true
-export LSCOLORS='exfxcxdxbxGxDxabagacad'
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-
-##########################################################################
 # ZGEN
 ##########################################################################
 
@@ -27,6 +20,7 @@ if ! zgen saved; then
   zgen load /usr/local/share/zsh/site-functions
 
   zgen load mollifier/anyframe
+  zgen load unixorn/warhol.plugin.zsh
 
   zgen oh-my-zsh plugins/thefuck
 
@@ -55,10 +49,6 @@ export HOMEBREW_NO_ANALYTICS=1
 
 export EDITOR="/usr/bin/vim"
 
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-
 ##########################################################################
 # SETOPT
 ##########################################################################
@@ -79,14 +69,11 @@ REPORTTIME=3
 
 bindkey -e
 
-bindkey '^r' anyframe-widget-put-history
-
-bindkey '^xgc' anyframe-widget-checkout-git-branch
-bindkey '^xgi' anyframe-widget-insert-git-branch
-
-bindkey '^xf' anyframe-widget-insert-filename
-
-bindkey '^xta' anyframe-widget-tmux-attach
+bindkey '^x^r'  anyframe-widget-put-history
+bindkey '^x^gc' anyframe-widget-checkout-git-branch
+bindkey '^x^gi' anyframe-widget-insert-git-branch
+bindkey '^x^f'  anyframe-widget-insert-filename
+bindkey '^x^ta' anyframe-widget-tmux-attach
 
 ##########################################################################
 # HISTORY
@@ -104,6 +91,3 @@ setopt hist_save_nodups
 # TMUX
 ##########################################################################
 
-# if type zprof > /dev/null 2>&1; then
-#   zprof | less
-# fi
