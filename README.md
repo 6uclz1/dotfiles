@@ -14,4 +14,4 @@ clone this repo and run script.
 
     $ cd ~
     $ git clone https://github.com/6uclz1/dotfiles/
-    $ sh ./osx/symboliclink.sh
+    $ sh ./makelinks.sh
