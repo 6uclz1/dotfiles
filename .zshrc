@@ -10,6 +10,7 @@ source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
 
+  zgen load mafredri/zsh-async
   zgen load sindresorhus/pure
 
 # generate the init script from plugins above
@@ -21,7 +22,6 @@ if ! zgen saved; then
 
   zgen load mollifier/anyframe
   zgen load unixorn/warhol.plugin.zsh
-
   zgen oh-my-zsh plugins/thefuck
 
   zgen oh-my-zsh plugins/pip
@@ -88,6 +88,6 @@ setopt hist_reduce_blanks
 setopt hist_save_nodups
 
 ##########################################################################
-# TMUX
+# 
 ##########################################################################
 
