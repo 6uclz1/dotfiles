@@ -3,13 +3,6 @@
 ##########################################################################
 
 ##########################################################################
-# LS_COLOR
-##########################################################################
-export CLICOLOR=true
-export LSCOLORS='exfxcxdxbxGxDxabagacad'
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-
-##########################################################################
 # ZGEN
 ##########################################################################
 
@@ -27,12 +20,12 @@ if ! zgen saved; then
   zgen load /usr/local/share/zsh/site-functions
 
   zgen load mollifier/anyframe
+  zgen load chrissicool/zsh-256color
 
   zgen oh-my-zsh plugins/brew
   zgen oh-my-zsh plugins/thefuck
 
   zgen oh-my-zsh plugins/pip
-  zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/pyenv
 
   zgen oh-my-zsh plugins/rbenv
@@ -59,7 +52,7 @@ REPORTTIME=3
 # BINDKEY
 ##########################################################################
 
-bindkey -e
+bindkey -v
 
 bindkey '^r' anyframe-widget-put-history
 
@@ -89,3 +82,6 @@ setopt hist_save_nodups
 # if type zprof > /dev/null 2>&1; then
 #   zprof | less
 # fi
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:$PATH"
+eval "$(pyenv init -)"

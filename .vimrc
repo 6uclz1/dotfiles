@@ -90,7 +90,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 "" vim plugins
-NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Yggdroot/indentLine'
@@ -107,5 +106,5 @@ filetype plugin indent on
 NeoBundleCheck
 
 set background=dark
-colorscheme hybrid
+
 syntax on
