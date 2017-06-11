@@ -1,14 +1,6 @@
 ##########################################################################
 # ZSHRC
 ##########################################################################
-
-##########################################################################
-# LS_COLOR
-##########################################################################
-export CLICOLOR=true
-export LSCOLORS='exfxcxdxbxGxDxabagacad'
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-
 ##########################################################################
 # ZGEN
 ##########################################################################
@@ -16,8 +8,6 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg
 source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
-
-  zgen load sindresorhus/pure
 
   # generate the init script from plugins above
   zgen load zsh-users/zsh-autosuggestions
@@ -27,6 +17,8 @@ if ! zgen saved; then
   zgen load /usr/local/share/zsh/site-functions
 
   zgen load mollifier/anyframe
+  zgen load mafredri/zsh-async
+  zgen load sindresorhus/pure
 
   zgen oh-my-zsh plugins/brew
   zgen oh-my-zsh plugins/thefuck
@@ -40,6 +32,14 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen save
 fi
+
+##########################################################################
+# LS_COLOR
+##########################################################################
+
+export CLICOLOR=true
+export LSCOLORS='exfxcxdxbxGxDxabagacad'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
 ##########################################################################
 # SETOPT
@@ -82,10 +82,3 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_save_nodups
 
-##########################################################################
-# TMUX
-##########################################################################
-
-# if type zprof > /dev/null 2>&1; then
-#   zprof | less
-# fi

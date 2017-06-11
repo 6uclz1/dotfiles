@@ -18,7 +18,7 @@ set smartindent
 set number
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General Setting
+" = > General Setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable beep
 set noerrorbells visualbell t_vb=
@@ -27,7 +27,7 @@ if has('autocmd')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
+" = > Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
@@ -39,7 +39,7 @@ set autoread
 set updatetime=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" = > Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -65,7 +65,7 @@ set clipboard=autoselect
 set paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Mouse Scroll
+" = > Mouse Scroll
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
@@ -74,38 +74,53 @@ set sidescrolloff=16
 set sidescroll=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NeoBundle
+" = > dein
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-    if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-        echo "install NeoBundle..."
-        :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-    endif
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+if dein#load_state(s:dein_dir)
+	call dein#begin(s:dein_dir)
+	call dein#add('Shougo/dein.vim')
+	call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+	call dein#add('Shougo/neocomplete.vim')
+	call dein#add('Shougo/neomru.vim')
+	call dein#add('Shougo/neosnippet')
+	call dein#add('w0ng/vim-hybrid')
+	call dein#add('itchyny/lightline.vim')
+	call dein#add('bronson/vim-trailing-whitespace')
+	call dein#add('ctrlpvim/ctrlp.vim')
+	call dein#add('Yggdroot/indentLine')
+	call dein#add('tomtom/tcomment_vim')
+	call dein#add('vim-syntastic/syntastic')
+	call dein#add('scrooloose/nerdtree')
+	call dein#end()
+endif
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-"" vim plugins
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'Yggdroot/indentLine'
+if dein#check_install()
+  call dein#install()
+endif
 
 set laststatus=2
 set showmode
 set showcmd
 set ruler
 
-call neobundle#end()
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ " = > colorscheme
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
 
-NeoBundleCheck
-
 set background=dark
 colorscheme hybrid
-syntax on
+syntax enable
+
