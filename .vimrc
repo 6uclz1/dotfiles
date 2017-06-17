@@ -102,7 +102,8 @@ if dein#load_state(s:dein_dir)
 	call dein#add('tomtom/tcomment_vim')
 	call dein#add('vim-syntastic/syntastic')
 	call dein#add('scrooloose/nerdtree')
-	call dein#end()
+	call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+call dein#end()
 endif
 
 if dein#check_install()

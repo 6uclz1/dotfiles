@@ -2,16 +2,8 @@ ln -sf $HOME/dotfiles/emacs/.emacs.d $HOME/.emacs.d
 
 FILES=\
 "Rprofile \
-spacemacs \
-sshrc \
-sshrc.d \
-tmux-osx.conf \
 tmux.conf \
-vim \
 vimrc \
-zlogin \
-zlogout \
-zprofile \
 zshenv \
 zshrc"
 

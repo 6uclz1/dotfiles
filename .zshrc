@@ -19,17 +19,22 @@ if ! zgen saved; then
   zgen load mollifier/anyframe
   zgen load mafredri/zsh-async
   zgen load sindresorhus/pure
+  zgen load mkwmms/zsh-osx
 
   zgen oh-my-zsh plugins/brew
   zgen oh-my-zsh plugins/thefuck
-
   zgen oh-my-zsh plugins/pip
   zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/pyenv
-
   zgen oh-my-zsh plugins/rbenv
-
   zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/terminalapp
+
+   if whence fzf >/dev/null; then
+     zgen load junegunn/fzf shell/completion.zsh
+     zgen load junegunn/fzf shell/key-bindings.zsh
+   fi
+
   zgen save
 fi
 
@@ -63,12 +68,9 @@ bindkey -e
 
 bindkey '^r' anyframe-widget-put-history
 
-bindkey '^xgc' anyframe-widget-checkout-git-branch
-bindkey '^xgi' anyframe-widget-insert-git-branch
+zstyle ":anyframe:selector:fzf:" command 'fzf --ansi --height 20%'
 
-bindkey '^xf' anyframe-widget-insert-filename
-
-bindkey '^xta' anyframe-widget-tmux-attach
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ##########################################################################
 # HISTORY
@@ -81,4 +83,5 @@ SAVEHIST=1000000
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_save_nodups
+
 
