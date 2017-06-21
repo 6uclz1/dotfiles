@@ -1,87 +1,57 @@
-##########################################################################
+##################################################
 # ZSHRC
-##########################################################################
-##########################################################################
-# ZGEN
-##########################################################################
 
-source "${HOME}/.zgen/zgen.zsh"
+##################################################
+# ZPLUG
 
-if ! zgen saved; then
+export ZPLUG_HOME=${HOME}/.cache/zplug
 
-  # generate the init script from plugins above
-  zgen load zsh-users/zsh-autosuggestions
-  zgen load zsh-users/zsh-syntax-highlighting
-  zgen load zsh-users/zsh-history-substring-search
-  zgen load zsh-users/zsh-completions src
-  zgen load /usr/local/share/zsh/site-functions
-
-  zgen load mollifier/anyframe
-  zgen load mafredri/zsh-async
-  zgen load sindresorhus/pure
-  zgen load mkwmms/zsh-osx
-
-  zgen oh-my-zsh plugins/brew
-  zgen oh-my-zsh plugins/thefuck
-  zgen oh-my-zsh plugins/pip
-  zgen oh-my-zsh plugins/python
-  zgen oh-my-zsh plugins/pyenv
-  zgen oh-my-zsh plugins/rbenv
-  zgen oh-my-zsh plugins/sudo
-  zgen oh-my-zsh plugins/terminalapp
-
-   if whence fzf >/dev/null; then
-     zgen load junegunn/fzf shell/completion.zsh
-     zgen load junegunn/fzf shell/key-bindings.zsh
-   fi
-
-  zgen save
+if [[ ! -d ${ZPLUG_HOME}/ ]];then
+  curl -sL --proto-redir -all,\
+  https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 fi
 
-##########################################################################
-# LS_COLOR
-##########################################################################
+source $ZPLUG_HOME/init.zsh
 
-export CLICOLOR=true
-export LSCOLORS='exfxcxdxbxGxDxabagacad'
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-##########################################################################
-# SETOPT
-##########################################################################
+zplug "mollifier/anyframe", from:github
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure",  use:pure.zsh, \
+                            from:github, \
+                            as:theme
 
-setopt auto_cd
-setopt auto_menu
-setopt auto_pushd
-setopt list_packed
-setopt list_types
+zplug "plugins/brew",   from:oh-my-zsh, \
+						lazy:true, \
+						if:"[[ $OSTYPE == *darwin* ]]"
+zplug "plugins/git",    from:oh-my-zsh, lazy:true
+zplug "plugins/pip",    from:oh-my-zsh, lazy:true
+zplug "plugins/python", from:oh-my-zsh, lazy:true
+zplug "plugins/pyenv",  from:oh-my-zsh, lazy:true
+zplug "plugins/sudo",   from:oh-my-zsh, lazy:true
 
-setopt nobeep
+if whence fzf >/dev/null; then
+  zplug "junegunn/fzf", \
+      as:command, \
+      use:"bin/fzf-tmux"
 
-REPORTTIME=3
-
-##########################################################################
-# BINDKEY
-##########################################################################
-
-bindkey -e
-
-bindkey '^r' anyframe-widget-put-history
-
-zstyle ":anyframe:selector:fzf:" command 'fzf --ansi --height 20%'
+  zplug "junegunn/fzf-bin", \
+      as:command, \
+      from:gh-r, \
+      rename-to:"fzf"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fi
 
-##########################################################################
-# HISTORY
-##########################################################################
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-
-setopt hist_ignore_space
-setopt hist_reduce_blanks
-setopt hist_save_nodups
-
+zplug load
 

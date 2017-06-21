@@ -47,9 +47,9 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -95,6 +95,7 @@ if dein#load_state(s:dein_dir)
 	call dein#add('Shougo/neomru.vim')
 	call dein#add('Shougo/neosnippet')
 	call dein#add('w0ng/vim-hybrid')
+	call dein#add('flazz/vim-colorschemes')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('bronson/vim-trailing-whitespace')
 	call dein#add('ctrlpvim/ctrlp.vim')
@@ -122,6 +123,5 @@ set ruler
 filetype plugin indent on
 
 set background=dark
-colorscheme hybrid
+colorscheme gruvbox
 syntax enable
-

@@ -1,11 +1,8 @@
 ##########################################################################
 # ZSHENV
-##########################################################################
 
 ##########################################################################
 # EXPORT
-##########################################################################
-
 typeset -U path
 
 # language environment
@@ -15,28 +12,77 @@ export LC_ALL=en_US.UTF-8
 # Don't send analytics
 export HOMEBREW_NO_ANALYTICS=1
 
+# Editor
+export EDITOR=vim
+
+# Latex
+export PATH="/Library/TeX/texbin:$PATH"
+
 # User configuration
 #PATH
-path=(/usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/bin $path[@])
+path=(/usr/local/bin \
+      /usr/bin \
+      /bin \
+      /usr/sbin \
+      /sbin \
+      /usr/bin \
+      "$path[@]" \
+      )
+
+##########################################################################
+# HISTORY
+##########################################################################
+
+HISTFILE="${HOME}/.cache/zsh_history"
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_nodups
+
+##########################################################################
+# SETOPT
+##########################################################################
+
+setopt auto_cd
+setopt auto_menu
+setopt auto_pushd
+setopt hist_verify
+setopt list_packed
+setopt list_types
+setopt nobeep
+
+REPORTTIME=3
+
+##########################################################################
+# LS_COLOR
+##########################################################################
+
+export CLICOLOR=true
+export LSCOLORS='exfxcxdxbxGxDxabagacad'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+
+##################################################
+# BINDKEY
+
+bindkey '^r' anyframe-widget-put-history
+zstyle ":anyframe:selector:fzf:" command 'fzf --ansi --height 20%'
 
 ##########################################################################
 # ALIAS
 ##########################################################################
 # Open Atom
 alias atom="open -a /Applications/Atom.app"
+
 # back directory
 alias ..="cd .."
-alias ..="cd ../.."
+alias ...="cd ../.."
+
 # Nyan Cat :)
 alias nyan='nc -v nyancat.dakko.us 23'
 
 alias :q='exit'
-
-# editor
-export EDITOR="/usr/local/bin/vim"
-
-# latex
-export PATH="/Library/TeX/texbin:$PATH"
 
 # color test
 color () {
@@ -78,5 +124,3 @@ color () {
     echo -e "\e[0;30m█████\\e[0m\e[0;31m█████\\e[0m\e[0;32m█████\\e[0m\e[0;33m█████\\e[0m\e[0;34m█████\\e[0m\e[0;35m█████\\e[0m\e[0;36m█████\\e[0m\e[0;37m█████\\e[0m"
     echo -e "\e[0m\e[1;30m█████\\e[0m\e[1;31m█████\\e[0m\e[1;32m█████\\e[0m\e[1;33m█████\\e[0m\e[1;34m█████\\e[0m\e[1;35m█████\\e[0m\e[1;36m█████\\e[0m\e[1;37m█████\\e[0m"
 }
-
-
