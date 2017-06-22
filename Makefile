@@ -1,7 +1,7 @@
 DOTPATH    := $(PWD)
-DOTS := $(wildcard .??*)
-CONFIG := $(wildcard .config/*)
-TARGET := $(DOTS) $(CONFIG)
+DOTS       := $(wildcard .??*)
+CONFIG     := $(wildcard .config/*)
+TARGET     := $(DOTS) $(CONFIG)
 EXCLUSIONS := .DS_Store .git .gitmodules .gitignore .config
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(TARGET))
 ZSHFILES	 := .zshrc .zshenv
@@ -15,6 +15,10 @@ deploy:
 	@echo '==> Copy dotfiles to home directory.'
 	@echo ''
 	@$(foreach val,$(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+
+init:
+	@echo "==> Initialized for this os."
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
 
 update:
 	git pull origin master

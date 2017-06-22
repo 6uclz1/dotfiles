@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " .init.vim
-                                              for neovim
+"                                            for neovim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " = > General Setting
 
@@ -81,14 +81,14 @@ set sidescroll=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " = > dein
 
-if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-  call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-  call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+if (!isdirectory(expand("$HOME/.cache/nvim/repos/github.com/Shougo/dein.vim")))
+  call system(expand("mkdir -p $HOME/.cache/nvim/repos/github.com"))
+  call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.cache/nvim/repos/github.com/Shougo/dein.vim"))
 endif
 
-set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+set runtimepath+=~/.cache/nvim/repos/github.com/Shougo/dein.vim/
 
-call dein#begin(expand('~/.config/nvim'))
+call dein#begin(expand('~/.cache/nvim'))
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('Shougo/deoplete.nvim')
