@@ -22,3 +22,6 @@ Temporary Items
 
 # private
 .ssh
+
+# compile z files
+*.zwc

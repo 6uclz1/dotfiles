@@ -1,5 +1,3 @@
-ln -sf $HOME/dotfiles/emacs/.emacs.d $HOME/.emacs.d
-
 FILES=\
 "Rprofile \
 tmux.conf \

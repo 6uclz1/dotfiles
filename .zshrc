@@ -1,6 +1,10 @@
 ##################################################
 # ZSHRC
 
+if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+    zcompile ~/.zshrc
+fi
+
 ##################################################
 # ZPLUG
 
@@ -28,11 +32,13 @@ zplug "plugins/pyenv", from:oh-my-zsh, lazy:true
 zplug "plugins/git",   from:oh-my-zsh, lazy:true
 
 zplug "junegunn/fzf", as:command, \
-      								use:"bin/fzf-tmux"
+      								use:"bin/fzf-tmux", \
+                      lazy:true
 
 zplug "junegunn/fzf-bin", as:command, \
       										from:gh-r, \
-      										rename-to:"fzf"
+      										rename-to:"fzf", \
+                          lazy:true
 
 if ! zplug check; then
 	zplug install
@@ -40,6 +46,8 @@ fi
 
 zplug load
 
-if (which zprof > /dev/null 2>&1) ;then
-	zprof
-fi
+# Check load time
+
+# if (which zprof > /dev/null 2>&1) ;then
+# 	zprof
+# fi
