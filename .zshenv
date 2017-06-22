@@ -1,9 +1,11 @@
 ##########################################################################
 # ZSHENV
 
+zmodload zsh/zprof && zprof
+
 ##########################################################################
 # EXPORT
-typeset -U path
+typeset -U path PATH cdpath fpath manpath
 
 # language environment
 export LANG=en_US.UTF-8
@@ -12,8 +14,23 @@ export LC_ALL=en_US.UTF-8
 # Don't send analytics
 export HOMEBREW_NO_ANALYTICS=1
 
-# Editor
-export EDITOR=vim
+# zplug
+export ZPLUG_HOME=$HOME/.cache/zplug
+
+# neovim
+export XDG_CONFIG_HOME=$HOME/.config
+
+#Sheet EDITOR
+if (which nvim > /dev/null 2>&1) ;then
+  export EDITOR=vim
+  export VISUAL=vim
+  alias v='vim'
+else
+  export EDITOR=nvim
+  export VISUAL=nvim
+  alias v='nvim'
+  alias vim='nvim'
+fi
 
 # Latex
 export PATH="/Library/TeX/texbin:$PATH"
@@ -37,9 +54,11 @@ HISTFILE="${HOME}/.cache/zsh_history"
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
-setopt hist_save_nodups
+setopt hist_save_no_dups
+setopt EXTENDED_HISTORY
 
 ##########################################################################
 # SETOPT
