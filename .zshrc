@@ -1,9 +1,9 @@
 ##################################################
 # ZSHRC
-
-if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-    zcompile ~/.zshrc
-fi
+#
+#if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+#    zcompile ~/.zshrc
+#fi
 
 ##################################################
 # ZPLUG
@@ -32,12 +32,12 @@ zplug "plugins/pyenv", from:oh-my-zsh, lazy:true
 zplug "plugins/git",   from:oh-my-zsh, lazy:true
 
 zplug "junegunn/fzf", as:command, \
-      								use:"bin/fzf-tmux", \
+                      use:"bin/fzf-tmux", \
                       lazy:true
 
 zplug "junegunn/fzf-bin", as:command, \
-      										from:gh-r, \
-      										rename-to:"fzf", \
+                          from:gh-r, \
+                          rename-to:"fzf", \
                           lazy:true
 
 if ! zplug check; then
