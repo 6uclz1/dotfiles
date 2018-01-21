@@ -22,6 +22,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Latex
 export PATH="/Library/TeX/texbin:$PATH"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # User configuration
 #PATH
 path=(/usr/local/bin \
@@ -84,7 +88,7 @@ zstyle ":anyframe:selector:fzf:" command 'fzf --ansi --height 20%'
 if which nvim > /dev/null 2>&1; then
   export EDITOR='nvim'
   export VISUAL='nvim'
-  alias vim='nvim'
+  alias v='nvim'
 else
 	export EDITOR='vim'
 	export VISUAL='vim'

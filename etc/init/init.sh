@@ -28,7 +28,21 @@ case ${OSTYPE} in
 		fi
 		echo ${init_dir}/macos/*.sh
 		;;
+
 	linux*)
 		echo "linux"
+
+		# build basic package
+		sudo apt-get update
+		sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev
+		sudo apt-get install -y make libreadline-dev libsqlite3-dev wget curl llvm
+		sudo apt-get install -y libncurses5-dev libncursesw5-dev libpng-dev
+		sudo apt-get -y install zsh vim tmux htop iftop
+		sudo apt-get -y install software-properties-common
+		sudo add-apt-repository ppa:neovim-ppa/unstable
+		sudo apt-get -y install neovim
+
+		# install pyenv
+		git clone git://github.com/yyuu/pyenv.git ~/.pyenv
   	;;
 esac

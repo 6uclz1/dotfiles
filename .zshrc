@@ -28,7 +28,7 @@ zplug "sindresorhus/pure",  use:pure.zsh, \
                             as:theme
 
 zplug "plugins/pip",   from:oh-my-zsh, lazy:true
-zplug "plugins/pyenv", from:oh-my-zsh, lazy:true
+zplug "plugins/pyenv", from:oh-my-zsh, defer:3
 zplug "plugins/git",   from:oh-my-zsh, lazy:true
 
 zplug "junegunn/fzf", as:command, \
@@ -53,3 +53,5 @@ zplug load
 # fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/libpcap/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
