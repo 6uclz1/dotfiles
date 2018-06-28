@@ -18,7 +18,7 @@ deploy:
 
 init:
 	@echo "==> Initialized for this os."
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/init/init.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/src/init.sh
 
 update:
 	git pull origin master
@@ -26,8 +26,7 @@ update:
 	git submodule update
 	git submodule foreach git pull origin master
 
-install: update deploy
-	@exec $$SHELL
+install: init zsh
 
 zsh:
 	@echo '==> Copy zsh setting files to home directory.'
