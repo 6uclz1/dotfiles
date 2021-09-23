@@ -1,5 +1,5 @@
 # init.sh
-# Check OS and Run dependence script
+# Check OS and Run dependence script (unix only)
 
 src_dir=${DOTPATH}/src
 
@@ -18,15 +18,6 @@ case ${OSTYPE} in
 		echo "bundle install"
 		brew bundle --file="${DOTPATH}/src/macos/Brewfile"
 
-		# zsh install check
-		if (which zsh > /dev/null 2>&1) ;then
-			# Set default shell >> zsh
-			sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
-			chsh -s /usr/local/bin/zsh
-		else
-			echo "zsh detect! stop install zsh"
-		fi
-
 		sudo sh ${src_dir}/macos/*.sh
 		;;
 
@@ -44,5 +35,5 @@ case ${OSTYPE} in
 		sudo apt-get install -y libncurses5-dev libncursesw5-dev libpng-dev
 		sudo apt-get -y install zsh vim tmux htop iftop
 		sudo apt-get -y install software-properties-common
-  	;;
+		;;
 esac

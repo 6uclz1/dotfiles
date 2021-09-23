@@ -1,57 +1,17 @@
-##################################################
-# ZSHRC
-#
-#if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-#    zcompile ~/.zshrc
-#fi
-
-##################################################
-# ZPLUG
-
-# AutoInstall
-if [[ ! -d ${ZPLUG_HOME}/ ]];then
-  curl -sL --proto-redir -all,\
-  https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# load zplug
-source $ZPLUG_HOME/init.zsh
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-zplug "mollifier/anyframe", from:github
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure",  use:pure.zsh, \
-                            from:github, \
-                            as:theme
 
-zplug "plugins/pip",   from:oh-my-zsh, lazy:true
-zplug "plugins/pyenv", from:oh-my-zsh, defer:3
-zplug "plugins/git",   from:oh-my-zsh, lazy:true
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-zplug "junegunn/fzf", as:command, \
-                      use:"bin/fzf-tmux", \
-                      lazy:true
-
-zplug "junegunn/fzf-bin", as:command, \
-                          from:gh-r, \
-                          rename-to:"fzf", \
-                          lazy:true
-
-if ! zplug check; then
-	zplug install
-fi
-
-zplug load
-
-# Check load time
-
-# if (which zprof > /dev/null 2>&1) ;then
-# 	zprof
-# fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/libpcap/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"

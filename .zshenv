@@ -1,8 +1,6 @@
 ##########################################################################
 # ZSHENV
 
-# zmodload zsh/zprof && zprof
-
 ##########################################################################
 # EXPORT
 typeset -U path
@@ -12,19 +10,6 @@ export LANG=en_US.UTF-8
 
 # Don't send analytics
 export HOMEBREW_NO_ANALYTICS=1
-
-# zplug
-export ZPLUG_HOME=$HOME/.cache/zplug
-
-# neovim
-export XDG_CONFIG_HOME=$HOME/.config
-
-# Latex
-export PATH="/Library/TeX/texbin:$PATH"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # User configuration
 #PATH
@@ -74,12 +59,6 @@ export LSCOLORS='exfxcxdxbxGxDxabagacad'
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;\
                   01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
-##################################################
-# BINDKEY
-
-bindkey '^r' anyframe-widget-put-history
-zstyle ":anyframe:selector:fzf:" command 'fzf --ansi --height 20%'
-
 ##########################################################################
 # ALIAS
 ##########################################################################
@@ -94,11 +73,3 @@ else
 	export VISUAL='vim'
 	alias v='vim'
 fi
-
-# back directory
-alias ..="cd .."
-alias ...="cd ../.."
-
-# Nyan Cat :)
-alias nyan='nc -v nyancat.dakko.us 23'
-alias :q='exit'

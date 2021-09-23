@@ -1,10 +1,11 @@
-DOTPATH    := $(PWD)
-DOTS       := $(wildcard .??*)
-CONFIG     := $(wildcard .config/*)
-TARGET     := $(DOTS) $(CONFIG)
-EXCLUSIONS := .DS_Store .git .gitmodules .gitignore .config
-DOTFILES   := $(filter-out $(EXCLUSIONS), $(TARGET))
-ZSHFILES	 := .zshrc .zshenv
+DOTPATH		:= $(PWD)
+DOTS		:= $(wildcard .??*)
+CONFIG		:= $(wildcard .config/*)
+TARGET		:= $(DOTS) $(CONFIG)
+EXCLUSIONS	:= .DS_Store .git .gitmodules .gitignore .config
+DOTFILES	:= $(filter-out $(EXCLUSIONS), $(TARGET))
+ZSHFILES	:= .zshrc .zshenv
+VIMFILES	:= .vimrc
 
 all:install
 
@@ -26,11 +27,26 @@ update:
 	git submodule update
 	git submodule foreach git pull origin master
 
-install: init zsh
+install:
+ifeq ($(OS),Windows_NT)
+	make windows
+else
+	make init
+	make zsh
+	make vim
+endif
+
+windows:
+	@echo "==> Initialized windowsOS."
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/windows/install.ps1
 
 zsh:
 	@echo '==> Copy zsh setting files to home directory.'
 	@$(foreach val,$(ZSHFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+
+vim:
+	@echo '==> Copy vim setting files to home directory.'
+	@$(foreach val,$(VIMFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
 clean:
 	@echo "==> Remove dotfiles from your home directory."

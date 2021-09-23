@@ -23,5 +23,5 @@ Temporary Items
 # private
 .ssh
 
-# compile z files
-*.zwc
+# Don't need
+src/macos/Brewfile.lock.json
