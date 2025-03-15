@@ -1,34 +1,38 @@
 ##########################################################################
 # ZSHENV
-
 ##########################################################################
-# EXPORT
+
+# Ensure paths are unique
 typeset -U path
 
-# language environment
+# Language environment
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-# Don't send analytics
+# Don't send analytics or hints (for Homebrew)
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
 
-# User configuration
-#PATH
-path=(/usr/local/bin \
-      /usr/bin \
-      /bin \
-      /usr/sbin \
-      /sbin \
-      /usr/bin \
-      "$path[@]" \
-      )
+# User PATH settings
+path=(
+  "$HOME/.local/bin"
+  "$HOME/bin"
+  "/usr/local/bin"
+  "/usr/bin"
+  "/bin"
+  "/usr/sbin"
+  "/sbin"
+  "$(command -v brew >/dev/null && brew --prefix)/bin"
+  "$path[@]"
+)
 
 ##########################################################################
 # HISTORY
 ##########################################################################
 
-HISTFILE="${HOME}/.cache/zsh_history"
-HISTSIZE=1000000
-SAVEHIST=1000000
+export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 
 setopt hist_ignore_dups
 setopt hist_ignore_space
@@ -48,28 +52,12 @@ setopt list_packed
 setopt list_types
 setopt nobeep
 
-REPORTTIME=3
+export REPORTTIME=3
 
 ##########################################################################
 # LS_COLOR
 ##########################################################################
 
-export CLICOLOR=true
-export LSCOLORS='exfxcxdxbxGxDxabagacad'
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;\
-                  01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
-
-##########################################################################
-# ALIAS
-##########################################################################
-
-# EDITOR
-if which nvim > /dev/null 2>&1; then
-  export EDITOR='nvim'
-  export VISUAL='nvim'
-  alias v='nvim'
-else
-	export EDITOR='vim'
-	export VISUAL='vim'
-	alias v='vim'
-fi
+export CLICOLOR=1
+export LSCOLORS="exfxcxdxbxGxDxabagacad"
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01"
