@@ -61,3 +61,9 @@ export REPORTTIME=3
 export CLICOLOR=1
 export LSCOLORS="exfxcxdxbxGxDxabagacad"
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01"
+
+##########################################################################
+# ALIAS
+##########################################################################
+
+alias ls="eza --icons --git --time-style relative -al"
