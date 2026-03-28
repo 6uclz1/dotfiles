@@ -6,7 +6,8 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 readonly FLAKE_REF="path:${REPO_ROOT}"
 readonly REQUIRED_USER="6uclz1"
-readonly DARWIN_HOST="MacBook-Air-M4"
+readonly DARWIN_CONFIG="macos"
+readonly DARWIN_HOSTNAME="MacBook-Air-M4"
 readonly WSL_CONFIG="6uclz1@wsl-arch"
 readonly NIX_FLAGS=(--extra-experimental-features "nix-command flakes")
 
@@ -58,7 +59,7 @@ detect_platform() {
     Darwin)
       local current_host
       current_host="$(scutil --get LocalHostName 2>/dev/null || hostname -s)"
-      [[ "${current_host}" == "${DARWIN_HOST}" ]] || die "unsupported macOS host: ${current_host} (expected ${DARWIN_HOST})"
+      [[ "${current_host}" == "${DARWIN_HOSTNAME}" ]] || die "unsupported macOS host: ${current_host} (expected ${DARWIN_HOSTNAME})"
       printf 'darwin\n'
       ;;
     Linux)
@@ -106,10 +107,10 @@ apply_darwin() {
   local nix_bin
   nix_bin="$(command -v nix)"
 
-  log "applying darwin configuration ${DARWIN_HOST}"
+  log "applying darwin configuration ${DARWIN_CONFIG}"
   sudo "${nix_bin}" "${NIX_FLAGS[@]}" run \
     nix-darwin/nix-darwin-25.11#darwin-rebuild -- \
-    switch --flake "${FLAKE_REF}#${DARWIN_HOST}"
+    switch --flake "${FLAKE_REF}#${DARWIN_CONFIG}"
 }
 
 apply_wsl() {

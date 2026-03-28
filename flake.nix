@@ -24,7 +24,7 @@
       ...
     }:
     let
-      macbook = import ./hosts/macbook-air-m4;
+      macos = import ./hosts/macos;
       wslArch = import ./hosts/wsl-arch;
 
       mkPkgs = system: import nixpkgs { inherit system; };
@@ -33,15 +33,16 @@
     in
     {
       darwinConfigurations = {
-        "${macbook.hostName}" = nix-darwin.lib.darwinSystem {
+        "${macos.configName}" = nix-darwin.lib.darwinSystem {
           specialArgs = {
             inherit inputs;
-            host = macbook;
+            host = macos;
           };
 
           modules = [
             home-manager.darwinModules.home-manager
             ./darwin/common.nix
+            ./darwin/apps.nix
           ];
         };
       };
@@ -62,9 +63,21 @@
       };
 
       checks = {
-        "${macbook.system}" = {
-          macbook-air-m4 = self.darwinConfigurations.${macbook.hostName}.system;
-        };
+        "${macos.system}" =
+          let
+            pkgs = mkPkgs macos.system;
+          in
+          {
+            macos = self.darwinConfigurations.${macos.configName}.system;
+            macos-identifiers = pkgs.runCommand "macos-identifiers" {
+              nativeBuildInputs = [ pkgs.ripgrep ];
+            } ''
+              cd ${self}
+              ! rg -n '#MacBook-Air-M4|#macbook-air-m4|hosts/macbook-air-m4|legacy/windows' \
+                README.md scripts hosts
+              touch "$out"
+            '';
+          };
 
         "${wslArch.system}" = {
           wsl-arch = self.homeConfigurations.${wslConfigName}.activationPackage;

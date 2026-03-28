@@ -1,6 +1,6 @@
 # dotfiles
 
-Nix を唯一の設定ソースにした dotfiles です。Phase 1 では macOS の `MacBook-Air-M4` と WSL の `wsl-arch` を対象にしています。
+Nix を唯一の設定ソースにした dotfiles です。現在の対象は macOS 設定 `macos` と WSL の `wsl-arch` です。
 
 ## Layout
 
@@ -9,7 +9,6 @@ Nix を唯一の設定ソースにした dotfiles です。Phase 1 では macOS 
 - `home/`: Home Manager の user-level 設定
 - `darwin/`: nix-darwin の system-level 設定
 - `files/`: raw dotfiles
-- `legacy/`: Nix 化対象外の旧設定
 
 ## Install Nix
 
@@ -24,7 +23,7 @@ Nix を唯一の設定ソースにした dotfiles です。Phase 1 では macOS 
 ./scripts/bootstrap.sh
 ```
 
-対象は `6uclz1` ユーザー上の `MacBook-Air-M4` と WSL 上の `wsl-arch` だけです。対象外の host では失敗させます。
+対象は `6uclz1` ユーザー上の macOS 設定 `macos` と WSL 上の `wsl-arch` だけです。macOS は実機 hostname `MacBook-Air-M4` を検証し、対象外の host では失敗させます。
 ローカルの未 commit / 未 stage 変更を含めて評価するため、script 内部では絶対 `path:` 参照を使います。
 
 ## Bootstrap macOS
@@ -32,13 +31,13 @@ Nix を唯一の設定ソースにした dotfiles です。Phase 1 では macOS 
 初回は `darwin-rebuild` がまだ PATH に無いので、flake input 経由で起動します。
 
 ```sh
-sudo nix run nix-darwin/nix-darwin-25.11#darwin-rebuild -- switch --flake "path:$PWD#MacBook-Air-M4"
+sudo nix run nix-darwin/nix-darwin-25.11#darwin-rebuild -- switch --flake "path:$PWD#macos"
 ```
 
 導入後の反映は次です。
 
 ```sh
-sudo darwin-rebuild switch --flake "path:$PWD#MacBook-Air-M4"
+sudo darwin-rebuild switch --flake "path:$PWD#macos"
 ```
 
 ## Bootstrap WSL
@@ -75,4 +74,4 @@ nix flake check --flake "path:$PWD"
 
 - Zsh plugin と prompt は Nix package ベースで構成します。`~/.zsh` への手動 clone は不要です。
 - Vim は `files/vimrc` を Home Manager から `~/.vimrc` に配置します。
-- Windows native は `legacy/windows/install.ps1` に切り離し、Phase 1 では管理しません。
+- Homebrew で入れていた CLI は Home Manager の `home.packages` に集約し、macOS GUI app と font は nix-darwin 側で管理します。
