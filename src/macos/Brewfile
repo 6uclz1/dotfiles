@@ -1,6 +1,0 @@
-tap "homebrew/cask"
-
-brew "powerlevel10k"
-
-cask "visual-studio-code"
-cask "karabiner-elements"
