@@ -1,6 +1,83 @@
-tap "homebrew/cask"
+# =============================================================================
+# Brewfile - macOS Development Environment Package Definitions
+# =============================================================================
+# Location: src/macos/Brewfile
+# Usage:
+#   brew bundle --file=src/macos/Brewfile          # Install packages
+#   brew bundle dump --file=src/macos/Brewfile     # Update this file
+# =============================================================================
 
-brew "powerlevel10k"
+tap "homebrew/bundle"
 
-cask "visual-studio-code"
-cask "karabiner-elements"
+# =============================================================================
+# Essential Development Tools
+# =============================================================================
+brew "git"                    # Version control
+brew "gh"                     # GitHub CLI
+brew "node"                   # JavaScript runtime
+brew "powerlevel10k"          # Zsh theme
+
+# =============================================================================
+# Command Line Utilities
+# =============================================================================
+brew "cmake"                  # Build system
+brew "eza"                    # Better ls with icons
+brew "fastfetch"              # System info display
+brew "jq"                     # JSON processor
+brew "glances"                # System monitor
+
+# =============================================================================
+# Python Environment
+# =============================================================================
+brew "pipx"                   # Isolated Python packages
+brew "uv"                     # Fast Python package manager
+
+# =============================================================================
+# Media & File Processing
+# =============================================================================
+brew "ffmpeg"                 # Video/audio processing
+brew "imagemagick"            # Image manipulation
+brew "yt-dlp"                 # Media downloader
+
+# =============================================================================
+# Development Applications
+# =============================================================================
+cask "visual-studio-code"     # Primary code editor
+cask "docker"                 # Containerization platform
+cask "github"                 # GitHub desktop client
+cask "ghostty"                # GPU-accelerated terminal
+
+# =============================================================================
+# Web Browsers
+# =============================================================================
+cask "google-chrome"          # Primary browser
+cask "firefox"                # Alternative browser
+
+# =============================================================================
+# Productivity & Utilities
+# =============================================================================
+cask "claude"                 # AI assistant desktop app
+cask "alt-tab"                # Window switcher
+cask "clibor"                 # Clipboard manager
+cask "popclip"                # Text selection actions
+cask "logi-options+"          # Logitech device settings
+
+# =============================================================================
+# Creative Applications
+# =============================================================================
+cask "blender"                # 3D modeling and animation
+
+# =============================================================================
+# VS Code Extensions
+# =============================================================================
+vscode "anthropic.claude-code"              # Claude Code integration
+vscode "github.copilot"                     # GitHub Copilot
+vscode "github.copilot-chat"                # Copilot chat interface
+vscode "ms-python.python"                   # Python language support
+vscode "ms-python.vscode-pylance"           # Python IntelliSense
+vscode "ms-python.debugpy"                  # Python debugger
+vscode "docker.docker"                      # Docker support
+vscode "ms-azuretools.vscode-docker"        # Azure Docker tools
+vscode "ms-azuretools.vscode-containers"    # Container development
+vscode "ms-vscode-remote.remote-containers" # Remote container development
+vscode "james-yu.latex-workshop"            # LaTeX support
