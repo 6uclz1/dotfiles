@@ -1,0 +1,3 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://www.lazyvim.org/configuration/general
+-- Add any additional options here
