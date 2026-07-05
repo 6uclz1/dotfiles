@@ -22,7 +22,7 @@
     }:
     let
       username = "6uclz1"; # `whoami`
-      hostname = "macbook"; # `scutil --get LocalHostName`
+      hostname = "MacBook-Air-M4"; # `scutil --get LocalHostName`
     in
     {
       darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {

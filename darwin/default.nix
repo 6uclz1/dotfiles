@@ -26,7 +26,7 @@
     onActivation = {
       autoUpdate = false;
       upgrade = false;
-      cleanup = "uninstall"; # remove anything not declared here
+      cleanup = "none"; # existing machine: leave undeclared brew packages alone
     };
   };
 }
