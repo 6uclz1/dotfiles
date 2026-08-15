@@ -1,6 +1,13 @@
-{ pkgs, self, ... }:
+{
+  inputs,
+  pkgs,
+  self,
+  ...
+}:
 
 let
+  ax = inputs.ax.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
   # Pin the vendor's stable Apple Silicon release and verify the published
   # archive checksum. AdGuard Home's own updater is disabled because upgrades
   # belong in a reviewed flake change.
@@ -27,6 +34,8 @@ let
   };
 in
 {
+  imports = [ ./zsh.nix ];
+
   # Determinate Nix owns the Nix daemon and Nix configuration. Enabling this
   # module prevents nix-darwin from trying to manage the same settings.
   determinateNix = {
@@ -52,23 +61,36 @@ in
   environment.systemPackages = with pkgs; [
     age
     adguardHome
+    ax
     bat
     bottom
+    delta
+    dua
+    dust
+    eza
     fd
+    fzf
     gh
+    ghq
     git
+    hyperfine
     jq
     just
+    lazygit
+    procs
     restic
     ripgrep
+    sd
     shellcheck
     sops
+    tealdeer
     tmux
     tree
     watch
+    yq-go
+    zoxide
   ];
 
-  programs.zsh.enable = true;
   programs.direnv.enable = true;
 
   # Keep the built-in macOS SSH daemon reachable only from Tailscale.
