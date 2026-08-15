@@ -18,8 +18,12 @@ Nix の管理対象外です。`homebrew.user = "alice"` は Homebrew を実行�
 ## 管理しているもの
 
 - Determinate Nix と macOS build sandbox
-- `age`、`bat`、`bottom`、`fd`、`gh`、`git`、`jq`、`just`、
-  `restic`、`ripgrep`、`shellcheck`、`sops`、`tmux`、`tree`、`watch`
+- 開発・Git: `gh`、`ghq`、`git`、`delta`、`lazygit`、`direnv`、`just`
+- 検索・ファイル操作: `ripgrep`、`fd`、`fzf`、`eza`、`bat`、`sd`
+- データ・Web: `jq`、`yq`、`ax`
+- 監視・計測: `bottom`、`procs`、`dust`、`dua`、`hyperfine`
+- 運用: `age`、`restic`、`shellcheck`、`sops`、`tealdeer`、`tmux`、
+  `tree`、`watch`、`zoxide`
 - Homebrew の `smartmontools` と Ghostty
 - 公開鍵認証のみの SSH（Tailscale のアドレス範囲からだけ接続可能。鍵は管理外）
 - AdGuard Home 0.107.78（Apple Silicon 版を SHA-256 で固定）
