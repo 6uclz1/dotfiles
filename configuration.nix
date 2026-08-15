@@ -34,6 +34,8 @@ let
   };
 in
 {
+  imports = [ ./zsh.nix ];
+
   # Determinate Nix owns the Nix daemon and Nix configuration. Enabling this
   # module prevents nix-darwin from trying to manage the same settings.
   determinateNix = {
@@ -89,7 +91,6 @@ in
     zoxide
   ];
 
-  programs.zsh.enable = true;
   programs.direnv.enable = true;
 
   # Keep the built-in macOS SSH daemon reachable only from Tailscale.

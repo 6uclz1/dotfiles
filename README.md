@@ -30,6 +30,36 @@ Nix の管理対象外です。`homebrew.user = "alice"` は Homebrew を実行�
 - macOS Application Firewall、stealth mode、Wake-on-LAN
 - スリープ無効、停電復帰後の自動起動
 
+## Zsh
+
+system-wide の zsh 設定として、Powerlevel10k、補完、autosuggestions、syntax
+highlighting、fzf 履歴検索、zoxide を有効にしています。Meslo Nerd Font も Nix で
+導入します。p10k の表示内容はユーザーごとの `~/.p10k.zsh` に保存され、Nix の
+管理対象外です。初回適用後に次を実行してください。
+
+```sh
+p10k configure
+```
+
+`g` を実行すると、`ghq` が管理するリポジトリを `peco` で絞り込み、その
+ディレクトリへ移動します。この操作は
+[Findy Media の ghq + peco の例](https://findy-code.io/media/articles/aisaji-tonkotsuboy_com#%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E9%96%93%E3%82%92%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E3%81%A4%E3%81%A7%E7%A7%BB%E5%8B%95%E3%81%99%E3%82%8Bghq-peco)
+を、キャンセルと空白入りパスを安全に扱えるよう調整したものです。
+
+```sh
+ghq get 6uclz1/dotfiles
+g
+```
+
+主な操作:
+
+- `Ctrl-R`: fzf による履歴検索
+- `Ctrl-G`: fzf による Git オブジェクト検索
+- `ll`: Git 情報付きの詳細ファイル一覧
+- `lt`: 2階層のツリー表示
+- `lg`: lazygit
+- `v`: Neovim
+
 ## 新しい Mac mini への復元
 
 ### 1. macOS の準備
