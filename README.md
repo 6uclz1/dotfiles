@@ -1,104 +1,147 @@
-# dotfiles
+# Mac mini dotfiles
 
-macOS (Apple Silicon) configuration, declaratively managed with
-[Nix](https://nixos.org/) + [nix-darwin](https://github.com/nix-darwin/nix-darwin) +
-[home-manager](https://github.com/nix-community/home-manager), flake-based.
+現在の Mac mini の稼働構成を再現するための nix-darwin flake です。
+Determinate Nix、CLI ツール、Homebrew、SSH、AdGuard Home、macOS Firewall、
+サーバー向け電源設定を管理します。
 
-- **darwin/** — system layer: Homebrew casks (VS Code, Karabiner-Elements), system settings
-- **home/** — user layer: zsh (Powerlevel10k, autocomplete, autosuggestions, syntax highlighting), Neovim, CLI packages
-- **config/nvim/** — [LazyVim](https://www.lazyvim.org/) config (plugins managed by lazy.nvim, pinned via `lazy-lock.json`)
+## 対象
 
-The repo is expected to be checked out at `~/dotfiles`
-(`home/neovim.nix` symlinks `~/.config/nvim` to `~/dotfiles/config/nvim`).
+- Apple Silicon Mac mini (`aarch64-darwin`)
+- Homebrew 実行ユーザー: 既存の `alice` アカウント
+- Nix: Determinate Nix
+- nix-darwin `system.stateVersion`: `6`
 
-## Bootstrap (fresh Mac)
+macOS の ComputerName、HostName、LocalHostName とユーザーアカウントは
+Nix の管理対象外です。`homebrew.user = "alice"` は Homebrew を実行する既存
+アカウントの指定であり、そのアカウント自体は作成・変更しません。
 
-1. Xcode Command Line Tools:
+## 管理しているもの
 
-   ```sh
-   xcode-select --install
-   ```
+- Determinate Nix と macOS build sandbox
+- `age`、`bat`、`bottom`、`fd`、`gh`、`git`、`jq`、`just`、
+  `restic`、`ripgrep`、`shellcheck`、`sops`、`tmux`、`tree`、`watch`
+- Homebrew の `smartmontools` と Ghostty
+- 公開鍵認証のみの SSH（Tailscale のアドレス範囲からだけ接続可能。鍵は管理外）
+- AdGuard Home 0.107.78（Apple Silicon 版を SHA-256 で固定）
+- macOS Application Firewall、stealth mode、Wake-on-LAN
+- スリープ無効、停電復帰後の自動起動
 
-2. Homebrew (nix-darwin drives `brew bundle` but does not install Homebrew itself):
+## 新しい Mac mini への復元
 
-   ```sh
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+### 1. macOS の準備
 
-3. Nix, via the [Determinate Systems installer](https://github.com/DeterminateSystems/nix-installer)
-   (survives macOS upgrades, clean uninstall, flakes enabled by default):
-
-   ```sh
-   curl -fsSL https://install.determinate.systems/nix | sh -s -- install
-   ```
-
-   > This installs **Determinate Nix**, which manages the Nix daemon itself —
-   > that is why `darwin/default.nix` sets `nix.enable = false;`.
-   > If you use upstream Nix instead, delete that line and add
-   > `nix.settings.experimental-features = "nix-command flakes";`.
-
-4. Clone and adjust identity:
-
-   ```sh
-   git clone https://github.com/6uclz1/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
-   ```
-
-   Set `username` (`whoami`) and `hostname` (`scutil --get LocalHostName`)
-   in `flake.nix`.
-
-5. First activation (`darwin-rebuild` is not on PATH yet):
-
-   ```sh
-   sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ~/dotfiles
-   ```
-
-   Troubleshooting:
-   - `/etc/zshrc` already exists → `sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin`
-   - nixbld GID mismatch → add `ids.gids.nixbld = 350;` to `darwin/default.nix`
-
-6. Open a new terminal, then:
-   - `p10k configure` — generates the untracked `~/.p10k.zsh`
-   - run `nvim` once — lazy.nvim bootstraps and installs plugins
-     (`:Lazy restore` reproduces the exact revisions from `lazy-lock.json`);
-     commit `lazy-lock.json` if it changed
-
-## Daily workflow
+macOS の初期設定を完了し、既存ユーザー名が `alice` でない場合は
+`configuration.nix` の `homebrew.user` をその名前へ変更します。
 
 ```sh
-# apply config changes
-sudo darwin-rebuild switch --flake ~/dotfiles
-
-# update all inputs (nixpkgs, nix-darwin, home-manager), then apply
-nix flake update && sudo darwin-rebuild switch --flake ~/dotfiles
-# commit flake.lock afterwards
-
-# update neovim plugins deliberately, then commit lazy-lock.json
-nvim +Lazy update
+xcode-select --install
 ```
 
-Rollback:
+Homebrew をインストールします。nix-darwin は既存の Homebrew を利用します。
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### 2. Determinate Nix とリポジトリ
+
+```sh
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+git clone https://github.com/6uclz1/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+```
+
+### 3. 評価、ビルド、適用
+
+最初に flake を検証し、システムをビルドします。
+
+```sh
+nix flake check
+nix build .#darwinConfigurations.mac-mini.system
+```
+
+初回は、ビルドされた `darwin-rebuild` を使います。
+
+```sh
+sudo ./result/sw/bin/darwin-rebuild switch --flake .#mac-mini
+```
+
+2 回目以降:
+
+```sh
+sudo /run/current-system/sw/bin/darwin-rebuild switch \
+  --flake ~/dotfiles#mac-mini
+```
+
+## Tailscale と AdGuard Home
+
+Tailscale は Nix ではなく、公式の standalone macOS package で管理します。
+公式 package をインストールして tailnet に接続し、このホストへ安定した
+Tailscale IP `100.120.189.89` を割り当ててから flake を適用してください。
+
+AdGuard Home は root の launch daemon として起動し、設定と作業データを
+`/var/lib/AdGuardHome` に保存します。初回は Tailscale 経由で次を開きます。
+
+```text
+http://100.120.189.89:3000
+```
+
+セットアップ値:
+
+- Admin web interface: `100.120.189.89:3000`
+- DNS server: `100.120.189.89:53`
+- Upstream: Quad9 DNS-over-HTTPS
+- DNSSEC: enabled
+- Default AdGuard DNS blocklist: enabled、毎日更新
+- Query log / statistics retention: 24 hours
+- Browsing security / parental control / SafeSearch: disabled
+
+セットアップ完了後、クライアントから DNS 解決とブロックを確認してから、
+Tailscale の global nameserver に `100.120.189.89` を設定し、
+**Override DNS servers** を有効にします。MagicDNS は有効のままにします。
+
+## 秘密情報
+
+パスワード、秘密 SSH 鍵、API token、age identity、AdGuard Home の実データは
+コミットしません。SSH 公開鍵は既存ユーザーの `~/.ssh/authorized_keys` に
+手動で配置します。AdGuard Home の管理者パスワードは password manager に保存し、
+新しいホストで再設定してください。
+
+FileVault と Time Machine はこの flake の管理外です。age/sops の永続 identity
+を追加する場合は、先に FileVault と復旧可能なバックアップを準備してください。
+
+## 運用
+
+更新前に必ず評価とビルドを行います。
+
+```sh
+cd ~/dotfiles
+nix flake check
+nix build .#darwinConfigurations.mac-mini.system
+sudo darwin-rebuild switch --flake .#mac-mini
+```
+
+input の更新は独立した変更として行い、更新後の `flake.lock` をコミットします。
+
+```sh
+nix flake update
+nix flake check
+nix build .#darwinConfigurations.mac-mini.system
+```
+
+ロールバック:
 
 ```sh
 darwin-rebuild --list-generations
 sudo darwin-rebuild switch --rollback
 ```
 
-## Migrating from the old (pre-Nix) setup
+## 適用後の確認
 
 ```sh
-rm -f ~/.zshrc ~/.zshenv ~/.vimrc   # old symlinks into this repo
-rm -rf ~/.zsh                       # git-cloned zsh plugins, now from nixpkgs
+launchctl print system/org.nixos.adguardhome
+pmset -g custom
+/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
+/usr/libexec/ApplicationFirewall/socketfilterfw --getstealthmode
+ssh -o PasswordAuthentication=no your-user@your-host
 ```
-
-`~/.p10k.zsh` and `~/.cache/zsh_history` keep working unchanged. The
-brew-installed `powerlevel10k` formula is removed automatically on the first
-switch (`homebrew.onActivation.cleanup = "uninstall"`); optional tidy-up:
-`brew untap homebrew/cask`, delete `~/.vim` and `~/.cache/dein`.
-
-## Untracked by design
-
-- `~/.p10k.zsh` — personal prompt tuning, regenerate with `p10k configure`
-- `~/.local/share/nvim/lazy/` — lazy.nvim's plugin store. Nix guarantees the
-  nvim binary, CLI dependencies and config files; plugin revisions are pinned
-  by the tracked `lazy-lock.json`.

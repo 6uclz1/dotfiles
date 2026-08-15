@@ -1,2 +1,15 @@
+# Nix build output
+/result
+/result-*
+
+# Never commit runtime credentials or local secret material
+/.env
+/.env.*
+!/.env.example
+/secrets/
+*.agekey
+*.pem
+*.p12
+*.key
+
 .DS_Store
-result
