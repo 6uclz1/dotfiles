@@ -1,0 +1,10 @@
+# domain<TAB>key<TAB>type<TAB>value — edit values, not the column structure.
+NSGlobalDomain	KeyRepeat	int	2
+NSGlobalDomain	InitialKeyRepeat	int	15
+NSGlobalDomain	com.apple.mouse.scaling	float	3
+NSGlobalDomain	com.apple.trackpad.scaling	float	3
+com.apple.finder	AppleShowAllFiles	bool	true
+NSGlobalDomain	AppleShowAllExtensions	bool	true
+com.apple.finder	ShowPathbar	bool	true
+com.apple.finder	ShowStatusBar	bool	true
+filesystem	LibraryHidden	bool	false
