@@ -17,11 +17,11 @@ usage() {
 ONLY=all MODE=apply RESTORE_ID='' BACKUP='' LOCKED=0
 while [ "$#" -gt 0 ]; do
     case "$1" in
-        --only) [ "$#" -ge 2 ] && [ "$ONLY" = all ] || fail '--onlyの指定が不正です。'
+        --only) [[ "$#" -ge 2 && "$ONLY" = all ]] || fail '--onlyの指定が不正です。'
             ONLY=$2; shift
             case "$ONLY" in brew|shell|macos) ;; *) fail '--onlyはbrew/shell/macosです。' ;; esac ;;
         --dry-run|--check) [ "$MODE" = apply ] || fail '操作モードは1つだけ指定してください。'; MODE=${1#--} ;;
-        --restore) [ "$#" -ge 2 ] && [ "$MODE" = apply ] || fail '--restoreの指定が不正です。'
+        --restore) [[ "$#" -ge 2 && "$MODE" = apply ]] || fail '--restoreの指定が不正です。'
             MODE=restore; RESTORE_ID=$2; shift ;;
         --help|-h) usage; exit 0 ;;
         *) usage; fail "不明な引数: $1" ;;

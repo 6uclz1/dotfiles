@@ -7,7 +7,7 @@ preflight() {
     [ "$(uname -s)" = Darwin ] || fail 'macOSで実行してください。'
     [ "$(uname -m)" = arm64 ] || fail '初版はApple Siliconのネイティブシェルが対象です。'
     [ "$(id -u)" != 0 ] || fail 'sudoで全体を実行せず、通常ユーザーで実行してください。'
-    [ -n "${HOME:-}" ] && [ -d "$HOME" ] || fail 'HOMEが利用できません。'
+    [[ -n "${HOME:-}" && -d "$HOME" ]] || fail 'HOMEが利用できません。'
     case "$HOME" in /*) ;; *) fail 'HOMEは絶対パスで指定してください。' ;; esac
     note "macOS $(sw_vers -productVersion) / $(uname -m) / $(id -un)"
 }
@@ -40,7 +40,7 @@ activate_brew() {
 ensure_brew() {
     if ! find_brew; then
         local installer
-        installer=$(mktemp -t dotfiles-homebrew)
+        installer=$(mktemp -t dotfiles-homebrew.XXXXXX)
         if ! curl --fail --silent --show-error --location --retry 3 \
             https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$installer"; then
             rm -f "$installer"

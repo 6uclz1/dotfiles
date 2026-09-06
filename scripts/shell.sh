@@ -9,10 +9,10 @@ validate_shell() {
         target="$HOME/$name"
         [ ! -L "$target" ] || fail "Zsh設定がsymlinkです。リンク先への統合を先に確認してください: $target"
         if [ -e "$target" ]; then
-            [ -f "$target" ] && [ -r "$target" ] || fail "Zsh設定を読み取れません: $target"
+            [[ -f "$target" && -r "$target" ]] || fail "Zsh設定を読み取れません: $target"
             starts=$(grep -Fxc "$BEGIN_MARK" "$target" || true)
             ends=$(grep -Fxc "$END_MARK" "$target" || true)
-            [ "$starts" = "$ends" ] && [ "$starts" -le 1 ] || fail "管理ブロックが重複・破損しています: $target"
+            [[ "$starts" = "$ends" && "$starts" -le 1 ]] || fail "管理ブロックが重複・破損しています: $target"
             if [ "$starts" = 1 ]; then
                 awk -v b="$BEGIN_MARK" -v e="$END_MARK" '$0==b { s=1 } $0==e { if (!s) exit 1 }' "$target" || fail '管理ブロックの順序が不正です。'
             fi

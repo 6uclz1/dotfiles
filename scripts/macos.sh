@@ -10,7 +10,7 @@ validate_settings() {
     local domain key type value extra seen='|' expected
     while IFS=$'\t' read -r domain key type value extra; do
         case "$domain" in ''|'#'*) continue ;; esac
-        [ -z "$extra" ] && [ -n "$value" ] || fail 'macos.tsvの列が不正です。'
+        [[ -z "$extra" && -n "$value" ]] || fail 'macos.tsvの列が不正です。'
         case "$seen" in *"|$domain/$key|"*) fail '設定キーが重複しています。' ;; esac
         seen="$seen$domain/$key|"
         if [ "$domain/$key" != filesystem/LibraryHidden ]; then validate_key "$domain" "$key" || fail "管理対象外: $domain/$key"; fi
@@ -22,7 +22,7 @@ validate_settings() {
             bool) case "$value" in true|false) ;; *) fail "${key}にはtrue/falseを指定してください。" ;; esac ;;
         esac
     done < "$ROOT/config/macos.tsv"
-    [ -d "$HOME/Library" ] && [ ! -L "$HOME/Library" ] || fail 'ユーザーLibraryがありません、またはsymlinkです。'
+    [[ -d "$HOME/Library" && ! -L "$HOME/Library" ]] || fail 'ユーザーLibraryがありません、またはsymlinkです。'
 }
 
 read_preference() {

@@ -31,7 +31,7 @@ restore_state() {
     local backup_id=$1 name target status domain key type value item errors=0
     [[ "$backup_id" =~ ^[0-9]{8}-[0-9]{6}\.[A-Za-z0-9]{6}$ ]] || fail 'バックアップIDが不正です。'
     BACKUP="$STATE/backups/$backup_id"
-    [ -d "$BACKUP" ] && [ ! -L "$BACKUP" ] || fail 'バックアップがありません。'
+    [[ -d "$BACKUP" && ! -L "$BACKUP" ]] || fail 'バックアップがありません。'
     [ "$(cat "$BACKUP/version")" = 1 ] || fail 'バックアップ形式が不明です。'
     # Check every shell conflict before restoring anything. Never erase later edits.
     for name in .zprofile .zshrc; do
