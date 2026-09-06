@@ -1,0 +1,25 @@
+name: macOS setup
+on:
+  push:
+    branches: [macOS, codex/mac-setup]
+  pull_request:
+    branches: [macOS]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-26]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install test tools (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y shellcheck zsh
+      - name: Install test tools (macOS)
+        if: runner.os == 'macOS'
+        run: brew list shellcheck >/dev/null 2>&1 || brew install shellcheck
+      - name: Syntax, lint, isolated behavior and native macOS tests
+        run: bash tests/run.sh

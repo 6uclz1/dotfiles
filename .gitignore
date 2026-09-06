@@ -22,3 +22,10 @@ Temporary Items
 
 # private
 .ssh
+
+# Local overrides / generated state (never publish personal configuration)
+*.local
+.env
+.env.*
+__pycache__/
+*.pyc
